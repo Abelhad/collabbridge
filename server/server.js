@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
+const campaignRoutes = require('./routes/campaignRoutes');
+const logger = require('./middleware/logger');
+const authRoutes = require('./routes/authRoutes');
+
 
 app.use(express.json());
+app.use(logger);
 
 app.get('/', (req, res)=>{
     res.json({
@@ -27,14 +32,18 @@ app.get('/api/businesses', (req, res)=>{
     });
 });
 
-app.post('/api/campaigns', (req, res)=>{
-    console.log(req.body);
+app.use('/api/campaigns', campaignRoutes);
+app.use('/api/auth', authRoutes);
 
-    res.json({
-        message: 'Campaign received',
-        campaign: req.body
-    });
-});
+const pool = require('./config/db');
+
+pool.query('SELECT NOW()')
+    .then(result=>{
+        console.log('Database connected:', result.rows[0])
+    })
+    .catch(error =>{
+        console.error('Database connection failed:', error);
+    })
 
 app.listen(3000, ()=>{
     console.log('server running on port 3000');
