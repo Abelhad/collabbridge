@@ -3,9 +3,10 @@ const app = express();
 const campaignRoutes = require('./routes/campaignRoutes');
 const logger = require('./middleware/logger');
 const authRoutes = require('./routes/authRoutes');
-
+const cookieParser = require('cookie-parser');
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(logger);
 
 app.get('/', (req, res)=>{
