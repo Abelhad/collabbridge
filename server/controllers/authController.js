@@ -123,4 +123,13 @@ const login = async(req, res) => {
         });
     }
 }
-module.exports = { register, login };
+
+const logout = (req, res) => {
+    res.clearCookie('token');
+
+    res.json({
+        message: 'Logged out successfully'
+    });
+};
+
+module.exports = { register, login, logout };
