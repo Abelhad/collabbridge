@@ -4,6 +4,7 @@ const campaignRoutes = require('./routes/campaignRoutes');
 const logger = require('./middleware/logger');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
+const profileRoutes = require('./routes/profileRoutes')
 
 app.use(express.json());
 app.use(cookieParser());
@@ -35,6 +36,7 @@ app.get('/api/businesses', (req, res)=>{
 
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/profiles', profileRoutes);
 
 const pool = require('./config/db');
 
