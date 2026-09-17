@@ -91,4 +91,62 @@ const getMyProfile = async (req, res)=>{
     }
 }
 
-module.exports = { createProfile, getMyProfile };
+const updateMyProfile = async (req, res) =>{
+    try{
+        const userId = req.user.id;
+
+        const {
+            bio,
+            location,
+            instagram,
+            instagram_followers,
+            tiktok,
+            tiktok_followers,
+            niche
+        } = req.body;
+
+        const result = await pool.query(
+            `UPDATE profiles 
+            SET 
+                bio = $1,
+                location = $2,
+                instagram = $3,
+                instagram_followers = $4,
+                tiktok = $5,
+                tiktok_followers = $6,
+                niche = $7,
+                updated_at = CURRENT_TIMESTAMP
+            WHERE user_id = $8
+            RETURNING *`,
+            [
+                bio,
+                location,
+                instagram,
+                instagram_followers,
+                tiktok,
+                tiktok_followers,
+                niche,
+                userId
+            ]
+        )
+
+        if(result.rows.length === 0){
+            return res.status(404).json({
+                message: 'Profile not found'
+            });
+        }
+
+        res.json({
+            message: 'Profile updated successfully',
+            profile: result.rows[0]
+        });
+    }catch(error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createProfile, getMyProfile, updateMyProfile };
