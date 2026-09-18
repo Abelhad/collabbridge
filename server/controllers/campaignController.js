@@ -118,4 +118,66 @@ const getCampaignById = async (req, res) => {
     }
 }
 
-module.exports = { createCampaign, getCampaigns, getCampaignById };
+const updateCampaign = async (req, res) => {
+    try{
+        const campaignId = req.params.id;
+        const businessId = req.user.id;
+
+        if(req.user.role !== 'business'){
+            return res.status(403).json({
+                message: 'Only businesses can update campaigns'
+            });
+        }
+
+        const {
+            title,
+            description,
+            location,
+            budget,
+            deadline
+        } = req.body;
+
+        const result = await pool.query(
+            `UPDATE campaigns
+            SET 
+                title = $1,
+                description = $2,
+                location = $3,
+                budget = $4,
+                deadline = $5,
+                updated_at = CURRENT_TIMESTAMP
+            WHERE id = $6 
+            AND business_id = $7
+            RETURNING *`,
+            [
+                title,
+                description,
+                location,
+                budget,
+                deadline,
+                campaignId,
+                businessId
+            ]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                message: 'Campaign not found or you do not own this campaign'
+            });
+        }
+
+        res.json({
+            message: 'Campaign updated successfully',
+            campaign: result.rows[0]
+        });
+
+    }catch(error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createCampaign, getCampaigns, getCampaignById, updateCampaign };
