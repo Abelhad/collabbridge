@@ -180,4 +180,39 @@ const updateCampaign = async (req, res) => {
     }
 }
 
-module.exports = { createCampaign, getCampaigns, getCampaignById, updateCampaign };
+const deleteCampaign = async (req, res) => {
+    try{
+        const campaignId = req.params.id;
+        const businessId = req.user.id;
+
+        if(req.user.role !== 'business'){
+            return res.status(403).json({
+                message: 'Only businesses can delete campaigns'
+            });
+        }
+
+        const result = await pool.query(
+            `DELETE FROM campaigns WHERE id = $1 AND business_id = $2 RETURNING *`,
+            [campaignId, businessId]
+        );
+
+        if(result.rows.length === 0){
+            return res.status(404).json({
+                message: 'Campaign not found or you do not own this campaign'
+            })
+        }
+
+        res.json({
+            message: 'Campaign deleted successfully'
+        });
+
+    }catch(error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createCampaign, getCampaigns, getCampaignById, updateCampaign, deleteCampaign };
