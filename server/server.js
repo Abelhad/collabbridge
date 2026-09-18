@@ -35,10 +35,10 @@ app.get('/api/businesses', (req, res)=>{
     });
 });
 
-app.use('/api/campaigns', campaignRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/profiles', profileRoutes);
 app.use('/api/business-profiles', businessProfileRoutes);
+app.use('/api/campaigns', campaignRoutes);
 
 const pool = require('./config/db');
 
