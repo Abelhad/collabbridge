@@ -145,4 +145,32 @@ const updateMyBusinessProfile = async (req, res) =>{
     }
 }
 
-module.exports = { createBusinessProfile, getMyBusinessProfile, updateMyBusinessProfile };
+const deleteMyBusinessProfile = async (req, res) => {
+    try{
+        const userId = req.user.id;
+
+        const result = await pool.query(
+            `DELETE FROM business_profiles WHERE user_id = $1 RETURNING *`,
+            [userId]
+        );
+
+        if(result.rows.length === 0){
+            return res.status(404).json({
+                message: 'Business profile not found'
+            });
+        }
+
+        res.json({
+            message: 'Business profile deleted successfully'
+        });
+
+    }catch(error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createBusinessProfile, getMyBusinessProfile, updateMyBusinessProfile, deleteMyBusinessProfile };
