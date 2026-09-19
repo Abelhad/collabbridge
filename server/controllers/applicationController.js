@@ -225,4 +225,42 @@ const updateApplicationStatus = async (req, res) => {
     }
 }
 
-module.exports = { createApplication, getMyApplications, getCampaignApplications, updateApplicationStatus };
+const deleteApplication = async (req, res) => {
+    try{
+        const creatorId = req.user.id;
+        const applicationId = req.params.id;
+
+        if (req.user.role !== 'creator') {
+            return res.status(403).json({
+                message: 'Only creators can withdraw applications'
+            });
+        }
+
+        const result = await pool.query(
+            `DELETE FROM applications 
+            WHERE id = $1 
+            AND creator_id = $2
+            RETURNING *`,
+            [applicationId, creatorId]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                message: 'Application not found or you do not own this application'
+            });
+        }
+
+        res.json({
+            message: 'Application withdrawn successfully',
+            applications: result.rows[0]
+        });
+
+    }catch(error) {
+        console.error(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createApplication, getMyApplications, getCampaignApplications, updateApplicationStatus, deleteApplication };

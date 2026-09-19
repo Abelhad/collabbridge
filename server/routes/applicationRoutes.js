@@ -5,12 +5,14 @@ const {
     createApplication, 
     getMyApplications, 
     getCampaignApplications, 
-    updateApplicationStatus 
+    updateApplicationStatus,
+    deleteApplication
 } = require('../controllers/applicationController');
 
 router.post('/', authMiddleware, createApplication);
 router.get('/me', authMiddleware, getMyApplications);
 router.get('/campaign/:id', authMiddleware, getCampaignApplications);
 router.put('/:id/status', authMiddleware, updateApplicationStatus);
+router.delete('/:id', authMiddleware, deleteApplication);
 
 module.exports = router;
