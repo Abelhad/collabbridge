@@ -114,4 +114,64 @@ const getMyApplications = async (req, res) => {
     }
 }
 
-module.exports = { createApplication, getMyApplications };
+const getCampaignApplications = async (req, res) => {
+    try{
+        const businessId = req.user.id;
+        const campaignId = req.params.id;
+
+        if (req.user.role !== 'business') {
+            return res.status(403).json({
+                message: 'Only businesses can view campaign applications'
+            });
+        }
+
+        const campaign = await pool.query(
+            `SELECT id FROM campaigns WHERE id = $1 AND business_id = $2`,
+            [campaignId, businessId]
+        );
+
+        if (campaign.rows.length === 0) {
+            return res.status(404).json({
+                message: 'Campaign not found or you do not own this campaign'
+            });
+        }
+
+        const result = await pool.query(
+            `SELECT 
+                applications.id,
+                applications.status,
+                applications.message,
+                applications.created_at,
+                users.id AS creator_id,
+                users.name AS creator_name,
+                profiles.bio,
+                profiles.location,
+                profiles.instagram,
+                profiles.instagram_followers,
+                profiles.tiktok,
+                profiles.tiktok_followers,
+                profiles.niche
+            FROM applications 
+            JOIN users 
+            ON applications.creator_id = users.id
+            LEFT JOIN profiles 
+            ON profiles.user_id = users.id
+            WHERE applications.campaign_id = $1
+            ORDER BY applications.created_at DESC`,
+            [campaignId]
+        );
+
+        res.json({
+            applications: result.rows
+        });
+
+    }catch(error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createApplication, getMyApplications, getCampaignApplications };
