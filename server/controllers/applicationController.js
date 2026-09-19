@@ -71,4 +71,47 @@ const createApplication = async (req, res) => {
     }
 }
 
-module.exports = { createApplication };
+const getMyApplications = async (req, res) => {
+    try{
+        const creatorId = req.user.id;
+
+        if(req.user.role !== 'creator'){
+            return res.status(403).json({
+                message: 'Only creators can view their applications'
+            });
+        }
+
+        const result = await pool.query(
+            `SELECT 
+                applications.id,
+                applications.status,
+                applications.message,
+                applications.created_at,
+                campaigns.id AS campaign_id,
+                campaigns.title,
+                campaigns.description,
+                campaigns.location,
+                campaigns.budget,
+                campaigns.deadline
+            FROM applications
+            JOIN campaigns
+            ON applications.campaign_id = campaigns.id
+            WHERE applications.creator_id = $1
+            ORDER BY applications.created_at DESC`,
+            [creatorId]
+        );
+
+        res.json({
+            applications: result.rows
+        });
+
+    }catch(error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createApplication, getMyApplications };
