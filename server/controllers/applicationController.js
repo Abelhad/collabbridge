@@ -174,4 +174,55 @@ const getCampaignApplications = async (req, res) => {
     }
 }
 
-module.exports = { createApplication, getMyApplications, getCampaignApplications };
+const updateApplicationStatus = async (req, res) => {
+    try{
+        const businessId = req.user.id;
+        const applicationId = req.params.id;
+        const { status } = req.body;
+
+        if(req.user.role !== 'business'){
+            return res.status(403).json({
+                message: 'Only businesses can update application status'
+            })
+        }
+
+        if(!['rejected', 'accepted'].includes(status)){
+            return res.status(400).json({
+                message: 'Status must be accepted or rejected'
+            });
+        }
+
+        const result = await pool.query(
+            `UPDATE applications
+            SET 
+                status = $1,
+                updated_at = CURRENT_TIMESTAMP
+            WHERE id = $2
+            AND campaign_id IN (
+                SELECT id FROM campaigns
+                WHERE business_id = $3
+            )
+            RETURNING *`,
+            [status, applicationId, businessId]
+        );
+
+        if(result.rows.length === 0){
+            return res.status(404).json({
+                message: 'Application not found or you do not own this campaign'
+            });
+        }
+
+        res.json({
+            message: `Application ${status} successfully`,
+            application: result.rows[0]
+        });
+
+    }catch(error) {
+        console.error(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+module.exports = { createApplication, getMyApplications, getCampaignApplications, updateApplicationStatus };
