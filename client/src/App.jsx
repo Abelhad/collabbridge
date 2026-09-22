@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import TestDashboard from './pages/TestDashboard'
 import ProtectedRoute from './routes/ProtectedRoute'
+import CreatorDashboard from './pages/creator/CreatorDashboard'
+import BusinessDashboard from './pages/business/BusinessDashboard'
 
 function App() {
   return (
@@ -12,14 +13,25 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='register' element={<Register />} />
-        <Route 
-          path="/test-dashboard" 
+        <Route
+          path="/creator/dashboard"
           element={
-            <ProtectedRoute>
-              <TestDashboard />
-            </ProtectedRoute>
-          } />
+              <ProtectedRoute>
+                  <CreatorDashboard />
+              </ProtectedRoute>
+          }
+        />
+
+        <Route
+            path="/business/dashboard"
+            element={
+                <ProtectedRoute>
+                    <BusinessDashboard />
+                </ProtectedRoute>
+            }
+        />
       </Routes>
+      
     </BrowserRouter>
   )
 }

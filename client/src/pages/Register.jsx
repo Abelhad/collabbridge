@@ -1,5 +1,65 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import api from '../services/api'
+
+
 const Register = () => {
-    return <h1>register</h1>
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [role, setRole] = useState('creator')
+    const [error, setError] = useState('')
+
+    const navigate = useNavigate()
+
+    const handleRegister = async (e) => {
+        e.preventDefault()
+        setError('')
+        try{
+            await api.post('/auth/register', (
+                name,
+                email,
+                password,
+                role
+            ))
+            navigate('/')
+        }catch(error){
+            setError(error.response?.data?.message || 'Registration failed')
+        }
+    }
+    return (
+        <form onSubmit={handleRegister}>
+            <input 
+                type="text" 
+                placeholder='name'
+                value={name}
+                onChange={(e)=> setName(e.target.value)}
+            />
+
+            <input 
+                type="email" 
+                placeholder='email'
+                value={email}
+                onChange={(e)=> setEmail(e.target.value)}
+            />
+
+            <input 
+                type="password" 
+                placeholder='password'
+                value={password}
+                onChange={(e)=> setPassword(e.target.value)}
+            />
+
+            <select value={role}>
+                <option value="creator"></option>
+                <option value="business"></option>
+            </select>
+
+            <button type="submit">Register</button>
+
+            {error && <p>{error}</p>}
+        </form>
+    )
 };
 
 export default Register;
