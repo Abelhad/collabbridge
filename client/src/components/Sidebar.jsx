@@ -1,17 +1,33 @@
 import { Link } from "react-router-dom"
+import { useAuth } from '../context/AuthContext'
+import api from '../services/api'
+import { useNavigate } from 'react-router-dom'
 
-const Sidebar = ({ role, name = 'John Doe', email = 'john@example.com' }) => {
+const Sidebar = () => {
+    const { user, setUser } = useAuth()
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        try {
+            await api.post('/auth/logout')
+            setUser(null)
+            navigate('/login')
+        } catch (error) {
+            console.error('Logout failed')
+        }
+    }
+
     return (
         <aside className="sidebar">
             <h2>CollabBridge</h2>
 
             <div className="profile-info">
-                <strong>{name}</strong>
-                <span>{email}</span>
-                <span>{role === 'creator' ? 'Creator' : 'Business'}</span>
+                <strong>{user?.name}</strong>
+                <span>{user?.email}</span>
+                <span>{user?.role === 'creator' ? 'Creator' : 'Business'}</span>
             </div>
 
-            {role === 'creator' ? (
+            {user?.role === 'creator' ? (
                 <nav>
                     <Link to="/creator/dashboard">Dashboard</Link>
                     <Link to="/creator/campaigns">Find Campaigns</Link>
@@ -26,7 +42,7 @@ const Sidebar = ({ role, name = 'John Doe', email = 'john@example.com' }) => {
                     <Link to="/creator/profile">My Profile</Link>
                 </nav>
             ) }
-            <button>Logout</button>
+            <button onClick={handleLogout}>Logout</button>
         </aside>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 
-const DashboardLayout = ({ children, role }) => {
+const DashboardLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -28,7 +28,7 @@ const DashboardLayout = ({ children, role }) => {
         />
       )}
 
-      <Sidebar role={role} />
+      <Sidebar />
 
       <main className="main-content">
         {children}
