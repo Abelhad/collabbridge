@@ -7,6 +7,12 @@ const cookieParser = require('cookie-parser');
 const profileRoutes = require('./routes/profileRoutes');
 const businessProfileRoutes = require('./routes/businessProfileRoutes');
 const applicationRoutes = require('./routes/applicationRoutes');
+const cors = require('cors')
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}))
 
 app.use(express.json());
 app.use(cookieParser());
