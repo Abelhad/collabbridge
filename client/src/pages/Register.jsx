@@ -16,13 +16,13 @@ const Register = () => {
         e.preventDefault()
         setError('')
         try{
-            await api.post('/auth/register', (
+            await api.post('/auth/register', {
                 name,
                 email,
                 password,
                 role
-            ))
-            navigate('/')
+            })
+            navigate('/login')
         }catch(error){
             setError(error.response?.data?.message || 'Registration failed')
         }
@@ -50,9 +50,12 @@ const Register = () => {
                 onChange={(e)=> setPassword(e.target.value)}
             />
 
-            <select value={role}>
-                <option value="creator"></option>
-                <option value="business"></option>
+            <select 
+                value={role}
+                onChange={(e) => setRole(e.target.value)} 
+            >
+                <option value="creator">creator</option>
+                <option value="business">business</option>
             </select>
 
             <button type="submit">Register</button>

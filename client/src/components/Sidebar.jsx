@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Sidebar = () => {
     const { user, setUser } = useAuth()
+    console.log(user)
     const navigate = useNavigate()
 
     const handleLogout = async () => {
@@ -36,10 +37,10 @@ const Sidebar = () => {
                 </nav>
             ) : (
                 <nav>
-                    <Link to="/creator/dashboard">Dashboard</Link>
-                    <Link to="/creator/campaigns">Find Campaigns</Link>
-                    <Link to="/creator/applications">My Applications</Link>
-                    <Link to="/creator/profile">My Profile</Link>
+                    <Link to="/business/dashboard">Dashboard</Link>
+                    <Link to="/business/campaigns">My Campaigns</Link>
+                    <Link to="/business/campaigns/create">Create Campaign</Link>
+                    <Link to="/business/profile">My Profile</Link>
                 </nav>
             ) }
             <button onClick={handleLogout}>Logout</button>

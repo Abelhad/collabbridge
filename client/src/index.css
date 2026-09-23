@@ -43,10 +43,30 @@ body {
 
 .sidebar h2 {
   font-size: 1.25rem;
-  font-weight: 600;
-  color: #111827;
+  font-weight: 700;
   letter-spacing: -0.02em;
   padding: 2px 10px 14px 10px;
+
+  /* Smooth gradient fade across the title */
+  background: linear-gradient(90deg, #111827 10%, #19d895 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* For mobile header */
+.mobile-brand-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #111827 10%, #19d895 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Subtle Profile Section */
@@ -118,8 +138,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 9px 14px;
-  background-color: #59c34f;
-  border: 1.5px solid #59c34f;
+  background-color: #19d895;
+  border: 1.5px solid #19d895;
   border-radius: 8px;
   color: white;
   font-size: 0.85rem;
@@ -130,7 +150,7 @@ body {
 
 .sidebar button:hover {
   background-color: white;
-  color: #59c34f;
+  color: #19d895;
 }
 
 /* ==========================================================================
