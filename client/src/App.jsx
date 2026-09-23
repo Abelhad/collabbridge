@@ -16,7 +16,7 @@ function App() {
         <Route
           path="/creator/dashboard"
           element={
-              <ProtectedRoute>
+              <ProtectedRoute role="creator">
                   <CreatorDashboard />
               </ProtectedRoute>
           }
@@ -25,7 +25,7 @@ function App() {
         <Route
             path="/business/dashboard"
             element={
-                <ProtectedRoute>
+                <ProtectedRoute role="business">
                     <BusinessDashboard />
                 </ProtectedRoute>
             }

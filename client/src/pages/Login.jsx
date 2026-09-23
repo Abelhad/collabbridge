@@ -26,9 +26,8 @@ const Login = () => {
       if(response.data.user.role === 'creator'){
         navigate('/creator/dashboard')
       }else{
-        navigate('/creator/dashboard')
+        navigate('/business/dashboard')
       }
-      navigate('/')
     }catch(error){
       setError(error.response?.data?.message || 'Login failed')
     }
