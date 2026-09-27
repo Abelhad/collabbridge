@@ -6,11 +6,13 @@ const {
     getMyApplications, 
     getCampaignApplications, 
     updateApplicationStatus,
-    deleteApplication
+    deleteApplication,
+    getMyCampaignApplications
 } = require('../controllers/applicationController');
 
 router.post('/', authMiddleware, createApplication);
 router.get('/me', authMiddleware, getMyApplications);
+router.get('/business', authMiddleware, getMyCampaignApplications);
 router.get('/campaign/:id', authMiddleware, getCampaignApplications);
 router.put('/:id/status', authMiddleware, updateApplicationStatus);
 router.delete('/:id', authMiddleware, deleteApplication);
