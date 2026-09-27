@@ -11,6 +11,8 @@ import DashboardLayout from './layouts/DashboardLayout'
 import BusinessCampaigns from './pages/business/BusinessCampaigns'
 import CreateCampaign from './pages/business/CreateCampaign'
 import CreatorCampaigns from './pages/creator/CreatorCampaigns'
+import CampaignDetails from './pages/creator/CampaignDetails'
+import CreatorApplications from './pages/creator/CreatorApplications'
 
 function App() {
   return (
@@ -89,7 +91,29 @@ function App() {
               </ProtectedRoute>
           }
         />
-        
+
+        <Route
+          path="/creator/campaigns/:id"
+          element={
+              <ProtectedRoute role="creator">
+                  <DashboardLayout>
+                      <CampaignDetails />
+                  </DashboardLayout>
+              </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/creator/applications"
+          element={
+              <ProtectedRoute role="creator">
+                  <DashboardLayout>
+                      <CreatorApplications />
+                  </DashboardLayout>
+              </ProtectedRoute>
+          }
+        />
+
       </Routes>
       
     </BrowserRouter>
