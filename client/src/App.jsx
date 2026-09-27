@@ -36,7 +36,9 @@ function App() {
             path="/business/dashboard"
             element={
                 <ProtectedRoute role="business">
+                  <DashboardLayout>
                     <BusinessDashboard />
+                  </DashboardLayout>
                 </ProtectedRoute>
             }
         />
