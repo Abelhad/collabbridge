@@ -10,6 +10,7 @@ import CreatorProfile from './pages/creator/CreatorProfile'
 import DashboardLayout from './layouts/DashboardLayout'
 import BusinessCampaigns from './pages/business/BusinessCampaigns'
 import CreateCampaign from './pages/business/CreateCampaign'
+import CreatorCampaigns from './pages/creator/CreatorCampaigns'
 
 function App() {
   return (
@@ -77,6 +78,18 @@ function App() {
               </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/creator/campaigns"
+          element={
+              <ProtectedRoute role="creator">
+                  <DashboardLayout>
+                      <CreatorCampaigns />
+                  </DashboardLayout>
+              </ProtectedRoute>
+          }
+        />
+        
       </Routes>
       
     </BrowserRouter>
