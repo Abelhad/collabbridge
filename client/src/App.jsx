@@ -9,6 +9,7 @@ import BusinessProfile from './pages/business/BusinessProfile'
 import CreatorProfile from './pages/creator/CreatorProfile'
 import DashboardLayout from './layouts/DashboardLayout'
 import BusinessCampaigns from './pages/business/BusinessCampaigns'
+import CreateCampaign from './pages/business/CreateCampaign'
 
 function App() {
   return (
@@ -63,6 +64,17 @@ function App() {
                     <BusinessCampaigns />
                 </DashboardLayout>
             </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/business/campaigns/create"
+          element={
+              <ProtectedRoute role="business">
+                  <DashboardLayout>
+                      <CreateCampaign />
+                  </DashboardLayout>
+              </ProtectedRoute>
           }
         />
       </Routes>

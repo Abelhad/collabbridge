@@ -39,7 +39,12 @@ const Sidebar = () => {
             ) : (
                 <nav>
                     <NavLink to="/business/dashboard">Dashboard</NavLink>
-                    <NavLink to="/business/campaigns">My Campaigns</NavLink>
+                    <NavLink
+                        to="/business/campaigns"
+                        end
+                    >
+                        My Campaigns
+                    </NavLink>
                     <NavLink to="/business/campaigns/create">Create Campaign</NavLink>
                     <NavLink to="/business/profile">My Profile</NavLink>
                 </nav>
