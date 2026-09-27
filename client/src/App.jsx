@@ -7,7 +7,8 @@ import CreatorDashboard from './pages/creator/CreatorDashboard'
 import BusinessDashboard from './pages/business/BusinessDashboard'
 import BusinessProfile from './pages/business/BusinessProfile'
 import CreatorProfile from './pages/creator/CreatorProfile'
-import DashboardLayout from './layouts/DashboardLayout';
+import DashboardLayout from './layouts/DashboardLayout'
+import BusinessCampaigns from './pages/business/BusinessCampaigns'
 
 function App() {
   return (
@@ -49,6 +50,17 @@ function App() {
             <ProtectedRoute role="creator">
                 <DashboardLayout>
                   <CreatorProfile />
+                </DashboardLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/business/campaigns"
+          element={
+            <ProtectedRoute role="business">
+                <DashboardLayout>
+                    <BusinessCampaigns />
                 </DashboardLayout>
             </ProtectedRoute>
           }
