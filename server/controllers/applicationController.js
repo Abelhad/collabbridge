@@ -174,6 +174,49 @@ const getCampaignApplications = async (req, res) => {
     }
 }
 
+const getMyCampaignApplications = async (req, res) => {
+    try {
+        const businessId = req.user.id
+
+        if (req.user.role !== 'business') {
+            return res.status(403).json({
+                message: 'Only businesses can view their campaign applications'
+            })
+        }
+
+        const result = await pool.query(
+            `SELECT
+                applications.id,
+                applications.status,
+                applications.message,
+                applications.created_at,
+                campaigns.id AS campaign_id,
+                campaigns.title AS campaign_title,
+                users.id AS creator_id,
+                users.name AS creator_name
+            FROM applications
+            JOIN campaigns
+                ON applications.campaign_id = campaigns.id
+            JOIN users
+                ON applications.creator_id = users.id
+            WHERE campaigns.business_id = $1
+            ORDER BY applications.created_at DESC`,
+            [businessId]
+        )
+
+        res.json({
+            applications: result.rows
+        })
+
+    } catch (error) {
+        console.error(error)
+
+        res.status(500).json({
+            message: 'Server error'
+        })
+    }
+}
+
 const updateApplicationStatus = async (req, res) => {
     try{
         const businessId = req.user.id;
@@ -263,4 +306,4 @@ const deleteApplication = async (req, res) => {
     }
 }
 
-module.exports = { createApplication, getMyApplications, getCampaignApplications, updateApplicationStatus, deleteApplication };
+module.exports = { createApplication, getMyApplications, getCampaignApplications, updateApplicationStatus, deleteApplication, getMyCampaignApplications };
