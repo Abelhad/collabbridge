@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useAuth } from '../context/AuthContext'
 import api from '../services/api'
 import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
     const { user, setUser } = useAuth()
@@ -30,17 +31,17 @@ const Sidebar = () => {
 
             {user?.role === 'creator' ? (
                 <nav>
-                    <Link to="/creator/dashboard">Dashboard</Link>
-                    <Link to="/creator/campaigns">Find Campaigns</Link>
-                    <Link to="/creator/applications">My Applications</Link>
-                    <Link to="/creator/profile">My Profile</Link>
+                    <NavLink to="/creator/dashboard">Dashboard</NavLink>
+                    <NavLink to="/creator/campaigns">Find Campaigns</NavLink>
+                    <NavLink to="/creator/applications">My Applications</NavLink>
+                    <NavLink to="/creator/profile">My Profile</NavLink>
                 </nav>
             ) : (
                 <nav>
-                    <Link to="/business/dashboard">Dashboard</Link>
-                    <Link to="/business/campaigns">My Campaigns</Link>
-                    <Link to="/business/campaigns/create">Create Campaign</Link>
-                    <Link to="/business/profile">My Profile</Link>
+                    <NavLink to="/business/dashboard">Dashboard</NavLink>
+                    <NavLink to="/business/campaigns">My Campaigns</NavLink>
+                    <NavLink to="/business/campaigns/create">Create Campaign</NavLink>
+                    <NavLink to="/business/profile">My Profile</NavLink>
                 </nav>
             ) }
             <button onClick={handleLogout}>Logout</button>

@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import ProtectedRoute from './routes/ProtectedRoute'
 import CreatorDashboard from './pages/creator/CreatorDashboard'
 import BusinessDashboard from './pages/business/BusinessDashboard'
+import BusinessProfile from './pages/business/BusinessProfile';
 
 function App() {
   return (
@@ -29,6 +30,15 @@ function App() {
                     <BusinessDashboard />
                 </ProtectedRoute>
             }
+        />
+
+        <Route 
+          path='/business/profile'
+          element={
+            <ProtectedRoute role="business">
+              <BusinessProfile />
+            </ProtectedRoute>
+          }
         />
       </Routes>
       
