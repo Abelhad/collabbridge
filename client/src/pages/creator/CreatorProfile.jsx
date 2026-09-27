@@ -1,0 +1,103 @@
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
+import api from '../../services/api'
+import ProfileHeader from '../../components/ProfileHeader'
+import { FaInstagram, FaTiktok } from 'react-icons/fa'
+
+const CreatorProfile = () => {
+    const { user } = useAuth()
+
+    const [profile, setProfile] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        const getProfile = async () => {
+            try {
+                const response = await api.get('/profiles/me')
+                setProfile(response.data.profile)
+            } catch (error) {
+                setError(
+                    error.response?.data?.message || 'Failed to load profile'
+                )
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        getProfile()
+    }, [])
+
+    if (loading) {
+        return <p>Loading profile...</p>
+    }
+
+    if (error) {
+        return <p>{error}</p>
+    }
+
+    return (
+        <div className="creator-profile">
+
+            <ProfileHeader
+                name={user?.name}
+                email={user?.email}
+            />
+
+            <section className="creator-info">
+                <div>
+                    <h2>Creator Information</h2>
+
+                    <p>
+                        <strong>Bio:</strong>{' '}
+                        {profile?.bio}
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>{' '}
+                        {profile?.location}
+                    </p>
+
+                    <p>
+                        <FaInstagram />{' '}
+                        {profile?.instagram}
+                    </p>
+
+                    <p>
+                        <strong>Instagram Followers:</strong>{' '}
+                        {profile?.instagram_followers}
+                    </p>
+
+                    <p>
+                        <FaTiktok />{' '}
+                        {profile?.tiktok}
+                    </p>
+
+                    <p>
+                        <strong>TikTok Followers:</strong>{' '}
+                        {profile?.tiktok_followers}
+                    </p>
+
+                    <p>
+                        <strong>Niche:</strong>{' '}
+                        {profile?.niche}
+                    </p>
+                </div>
+
+                <div className="profile-actions">
+                    <Link to="/creator/profile/edit">
+                        Edit
+                    </Link>
+
+                    <button>
+                        Delete
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    )
+}
+
+export default CreatorProfile

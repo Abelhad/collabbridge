@@ -529,3 +529,333 @@ body {
     padding: 10px 16px;
   }
 }
+
+/* ==========================================================================
+   Business & Creator Profile & ProfileHeader (Modern Modular Bento Card Style)
+   ========================================================================== */
+
+/* Outer Profile Card with clean border & subtle elevation */
+.business-profile,
+.creator-profile {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Loading & Error States */
+.profile-loading,
+.profile-error {
+  padding: 48px 36px;
+  text-align: center;
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.profile-error {
+  color: #dc2626;
+}
+
+/* Profile Header Section with Ambient Gradient */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 36px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-bottom: 1px solid #eef2f6;
+  gap: 20px;
+}
+
+.profile-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin-bottom: 4px;
+}
+
+.profile-header p {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Primary Action Button (Gradient with Soft Shadow) */
+.profile-header a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1ab37e 0%, #159a6c 100%);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(26, 179, 126, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.profile-header a:hover {
+  background: linear-gradient(135deg, #159a6c 0%, #118059 100%);
+  box-shadow: 0 4px 14px rgba(26, 179, 126, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Info Section Container */
+.business-info,
+.creator-info {
+  position: relative;
+  padding: 36px;
+}
+
+/* 2-Column Responsive Bento Grid */
+.business-info > div:first-child,
+.creator-info > div:first-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.business-info h2,
+.creator-info h2 {
+  grid-column: 1 / -1;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+/* Modular Information Tiles */
+.business-info p,
+.creator-info p {
+  margin: 0;
+  padding: 18px 20px;
+  background-color: #f8fafc;
+  border: 1px solid #eef2f6;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  color: #1e293b;
+  line-height: 1.5;
+  transition: all 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.business-info p:hover,
+.creator-info p:hover {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.business-info strong,
+.creator-info strong {
+  display: block;
+  font-size: 0.725rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+/* Featured Bio & Description Cards (Spanning full width across the top) */
+.business-info p:nth-of-type(2),
+.creator-info p:first-of-type {
+  grid-column: 1 / -1;
+  background-color: #f8fafc;
+  border: 1px solid #eef2f6;
+  padding: 20px 24px;
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.65;
+  order: 1;
+}
+
+.business-info p:nth-of-type(2):hover,
+.creator-info p:first-of-type:hover {
+  background-color: #ffffff;
+}
+
+/* Creator Bento Card Pairing */
+.creator-info p:nth-of-type(2) {
+  order: 2;
+  font-weight: 500;
+}
+
+.creator-info p:nth-of-type(7) {
+  order: 2;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Social Media Handle Tiles with react-icons (FaInstagram & FaTiktok) */
+.creator-info p:nth-of-type(3),
+.creator-info p:nth-of-type(5),
+.creator-info p:has(svg) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.creator-info p:nth-of-type(3) {
+  order: 3;
+}
+
+.creator-info p:nth-of-type(4) {
+  order: 3;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.creator-info p:nth-of-type(5) {
+  order: 4;
+}
+
+.creator-info p:nth-of-type(6) {
+  order: 4;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Icon specific sizing & brand colors */
+.creator-info p svg {
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.creator-info p:nth-of-type(3) svg {
+  font-size: 1.45rem;
+  color: #e1306c;
+}
+
+.creator-info p:nth-of-type(5) svg {
+  font-size: 1.4rem;
+  color: #111827;
+}
+
+.creator-info p:hover svg {
+  transform: scale(1.08);
+}
+
+/* Top-Right Action Controls */
+.profile-actions {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Orange Edit Button */
+.profile-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 9px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f97316;
+  color: #ffffff;
+  border: 1px solid #ea580c;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease;
+}
+
+.profile-actions a:hover {
+  background-color: #ea580c;
+  border-color: #c2410c;
+  transform: translateY(-1px);
+}
+
+/* Modern Soft Danger Delete Action */
+.profile-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 9px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.profile-actions button:hover {
+  background-color: #fee2e2;
+  border-color: #f87171;
+  color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .business-profile,
+  .creator-profile {
+    border-radius: 16px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .profile-header a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .business-info,
+  .creator-info {
+    padding: 24px 20px;
+  }
+
+  .business-info > div:first-child,
+  .creator-info > div:first-child {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .business-info p:nth-of-type(2),
+  .creator-info p:first-of-type {
+    grid-column: 1;
+  }
+
+  .profile-actions {
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+  }
+
+  .profile-actions a,
+  .profile-actions button {
+    flex: 1;
+    padding: 10px 16px;
+  }
+}

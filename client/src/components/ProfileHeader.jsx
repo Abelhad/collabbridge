@@ -12,7 +12,7 @@ const ProfileHeader = ({ name, email }) => {
 
             {user?.role == 'creator' ? (
                 <Link to="/creator/campaigns">
-                    Browse Campaigns
+                    Find Campaigns
                 </Link>
             ) : (
                 <Link to="/business/campaigns">

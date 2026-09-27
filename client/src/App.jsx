@@ -5,7 +5,9 @@ import Register from './pages/Register';
 import ProtectedRoute from './routes/ProtectedRoute'
 import CreatorDashboard from './pages/creator/CreatorDashboard'
 import BusinessDashboard from './pages/business/BusinessDashboard'
-import BusinessProfile from './pages/business/BusinessProfile';
+import BusinessProfile from './pages/business/BusinessProfile'
+import CreatorProfile from './pages/creator/CreatorProfile'
+import DashboardLayout from './layouts/DashboardLayout';
 
 function App() {
   return (
@@ -37,6 +39,17 @@ function App() {
           element={
             <ProtectedRoute role="business">
               <BusinessProfile />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/creator/profile"
+          element={
+            <ProtectedRoute role="creator">
+                <DashboardLayout>
+                  <CreatorProfile />
+                </DashboardLayout>
             </ProtectedRoute>
           }
         />
