@@ -1,11 +1,118 @@
-import DashboardLayout from '../../layouts/DashboardLayout'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import api from '../../services/api'
+import { useAuth } from '../../context/AuthContext'
 
 const CreatorDashboard = () => {
+    const { user } = useAuth()
+
+    const [applications, setApplications] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        const getApplications = async () => {
+            try {
+                const response = await api.get('/applications/me')
+                setApplications(response.data.applications)
+            } catch (error) {
+                setError(
+                    error.response?.data?.message ||
+                    'Failed to load applications'
+                )
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        getApplications()
+    }, [])
+
+    const acceptedCount = applications.filter(
+        (application) => application.status === 'accepted'
+    ).length
+
+    const pendingCount = applications.filter(
+        (application) => application.status === 'pending'
+    ).length
+
+    const recentApplications = applications.slice(0, 5)
+
+    if (loading) {
+        return <p>Loading dashboard...</p>
+    }
+
+    if (error) {
+        return <p>{error}</p>
+    }
+
     return (
-        <DashboardLayout role="creator">
-            <h1>Creator Dashboard</h1>
-            <p>Welcome to your dashboard.</p>
-        </DashboardLayout>
+        <div className="creator-dashboard">
+            <section className="dashboard-welcome">
+                <h1>Welcome, {user?.name} 👋</h1>
+                <p>
+                    Find campaigns and collaborate with businesses.
+                </p>
+            </section>
+
+            <section className="dashboard-stats">
+                <div>
+                    <h2>{applications.length}</h2>
+                    <p>Applications</p>
+                </div>
+
+                <div>
+                    <h2>{acceptedCount}</h2>
+                    <p>Accepted</p>
+                </div>
+
+                <div>
+                    <h2>{pendingCount}</h2>
+                    <p>Pending</p>
+                </div>
+            </section>
+
+            <section className="quick-actions">
+                <h2>Quick Actions</h2>
+
+                <Link to="/creator/campaigns">
+                    Find Campaigns
+                </Link>
+
+                <Link to="/creator/applications">
+                    My Applications
+                </Link>
+
+                <Link to="/creator/profile">
+                    My Profile
+                </Link>
+            </section>
+
+            <section className="recent-applications">
+                <h2>Recent Applications</h2>
+
+                {recentApplications.length === 0 ? (
+                    <p>You haven't applied to any campaigns yet.</p>
+                ) : (
+                    recentApplications.map((application) => (
+                        <div key={application.id}>
+                            <h3>{application.title}</h3>
+
+                            <p>
+                                Status:{' '}
+                                <strong>{application.status}</strong>
+                            </p>
+
+                            <Link
+                                to={`/creator/campaigns/${application.campaign_id}`}
+                            >
+                                View
+                            </Link>
+                        </div>
+                    ))
+                )}
+            </section>
+        </div>
     )
 }
 

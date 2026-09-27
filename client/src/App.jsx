@@ -25,7 +25,9 @@ function App() {
           path="/creator/dashboard"
           element={
               <ProtectedRoute role="creator">
+                <DashboardLayout>
                   <CreatorDashboard />
+                </DashboardLayout>
               </ProtectedRoute>
           }
         />
