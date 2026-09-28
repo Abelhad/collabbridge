@@ -30,6 +30,21 @@ const CreatorProfile = () => {
         getProfile()
     }, [])
 
+    const handleDelete = async () => {
+    const confirmed = window.confirm(
+        'Are you sure you want to delete your profile?'
+    )
+
+    if (!confirmed) return
+
+    try {
+        await api.delete('/profiles/me')
+        window.location.reload()
+    } catch (error) {
+        console.error(error)
+    }
+}
+
     if (loading) {
         return <p>Loading profile...</p>
     }
@@ -91,7 +106,7 @@ const CreatorProfile = () => {
                         <FiEdit /> Edit
                     </Link>
 
-                    <button>
+                    <button onClick={handleDelete}>
                         <FiTrash2 /> Delete
                     </button>
                 </div>

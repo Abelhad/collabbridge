@@ -38,6 +38,21 @@ const BusinessProfile = () => {
         getProfile()
     }, [])
 
+    const handleDelete = async () => {
+    const confirmed = window.confirm(
+        'Are you sure you want to delete your business profile?'
+    )
+
+    if (!confirmed) return
+
+    try {
+        await api.delete('/business-profiles/me')
+        window.location.reload()
+    } catch (error) {
+        console.error(error)
+    }
+}
+
     if (loading) {
         return <p>Loading profile...</p>
     }
@@ -92,7 +107,7 @@ const BusinessProfile = () => {
                             <FiEdit /> Edit
                         </Link>
 
-                        <button>
+                        <button onClick={handleDelete}>
                             <FiTrash2 /> Delete
                         </button>
                     </div>
