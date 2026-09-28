@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { FiFileText, FiCheckCircle, FiClock, FiSearch, FiBriefcase, FiUser, FiArrowRight } from 'react-icons/fi'
 import api from '../../services/api'
 import { useAuth } from '../../context/AuthContext'
 
@@ -57,16 +58,19 @@ const CreatorDashboard = () => {
 
             <section className="dashboard-stats">
                 <div>
+                    <FiFileText />
                     <h2>{applications.length}</h2>
                     <p>Applications</p>
                 </div>
 
                 <div>
+                    <FiCheckCircle />
                     <h2>{acceptedCount}</h2>
                     <p>Accepted</p>
                 </div>
 
                 <div>
+                    <FiClock />
                     <h2>{pendingCount}</h2>
                     <p>Pending</p>
                 </div>
@@ -76,14 +80,17 @@ const CreatorDashboard = () => {
                 <h2>Quick Actions</h2>
 
                 <Link to="/creator/campaigns">
+                    <FiSearch />
                     Find Campaigns
                 </Link>
 
                 <Link to="/creator/applications">
+                    <FiBriefcase />
                     My Applications
                 </Link>
 
                 <Link to="/creator/profile">
+                    <FiUser />
                     My Profile
                 </Link>
             </section>
@@ -106,7 +113,7 @@ const CreatorDashboard = () => {
                             <Link
                                 to={`/creator/campaigns/${application.campaign_id}`}
                             >
-                                View
+                                View <FiArrowRight />
                             </Link>
                         </div>
                     ))

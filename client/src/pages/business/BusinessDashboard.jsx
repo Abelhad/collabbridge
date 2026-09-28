@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { FiBriefcase, FiFileText, FiClock, FiPlus, FiUser, FiArrowRight } from 'react-icons/fi'
 import api from '../../services/api'
 import { useAuth } from '../../context/AuthContext'
 
@@ -23,10 +24,6 @@ const BusinessDashboard = () => {
                 setCampaigns(campaignsResponse.data.campaigns)
                 setApplications(applicationsResponse.data.applications)
             } catch (error) {
-                console.log(error.response?.status)
-                console.log(error.response?.data)
-                console.log(error.config?.url)
-
                 setError(
                     error.response?.data?.message ||
                     'Failed to load dashboard'
@@ -64,16 +61,19 @@ const BusinessDashboard = () => {
 
             <section className="dashboard-stats">
                 <div>
+                    <FiBriefcase />
                     <h2>{campaigns.length}</h2>
                     <p>Campaigns</p>
                 </div>
 
                 <div>
+                    <FiFileText />
                     <h2>{applications.length}</h2>
                     <p>Applications</p>
                 </div>
 
                 <div>
+                    <FiClock />
                     <h2>{pendingCount}</h2>
                     <p>Pending Applications</p>
                 </div>
@@ -83,14 +83,17 @@ const BusinessDashboard = () => {
                 <h2>Quick Actions</h2>
 
                 <Link to="/business/campaigns/create">
+                    <FiPlus />
                     Create Campaign
                 </Link>
 
                 <Link to="/business/campaigns">
+                    <FiBriefcase />
                     My Campaigns
                 </Link>
 
                 <Link to="/business/profile">
+                    <FiUser />
                     My Profile
                 </Link>
             </section>
@@ -112,7 +115,7 @@ const BusinessDashboard = () => {
                             <Link
                                 to={`/business/campaigns/${campaign.id}/edit`}
                             >
-                                View / Edit
+                                View / Edit <FiArrowRight />
                             </Link>
                         </div>
                     ))
