@@ -45,6 +45,7 @@ const Sidebar = () => {
                     >
                         My Campaigns
                     </NavLink>
+                    <NavLink to="/business/applications">Applications</NavLink>
                     <NavLink to="/business/campaigns/create">Create Campaign</NavLink>
                     <NavLink to="/business/profile">My Profile</NavLink>
                 </nav>

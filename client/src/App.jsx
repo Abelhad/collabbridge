@@ -13,6 +13,7 @@ import CreateCampaign from './pages/business/CreateCampaign'
 import CreatorCampaigns from './pages/creator/CreatorCampaigns'
 import CampaignDetails from './pages/creator/CampaignDetails'
 import CreatorApplications from './pages/creator/CreatorApplications'
+import BusinessApplications from './pages/business/BusinessApplications';
 
 function App() {
   return (
@@ -113,6 +114,17 @@ function App() {
               <ProtectedRoute role="creator">
                   <DashboardLayout>
                       <CreatorApplications />
+                  </DashboardLayout>
+              </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/business/applications"
+          element={
+              <ProtectedRoute role="business">
+                  <DashboardLayout>
+                      <BusinessApplications />
                   </DashboardLayout>
               </ProtectedRoute>
           }

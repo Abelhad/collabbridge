@@ -25,6 +25,10 @@ const BusinessCampaigns = () => {
         getCampaigns()
     }, [])
 
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString('en-CA')
+    }
+
     if (loading) {
         return <p>Loading campaigns...</p>
     }
@@ -64,7 +68,7 @@ const BusinessCampaigns = () => {
 
                             <p>
                                 <strong>Deadline:</strong>{' '}
-                                {campaign.deadline || 'Not specified'}
+                                {formatDate(campaign.deadline) || 'Not specified'}
                             </p>
 
                             <Link to={`/business/campaigns/${campaign.id}/edit`}>
