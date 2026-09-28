@@ -2402,3 +2402,206 @@ body {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   Edit Creator Profile (Modern SaaS Settings & Form Design)
+   ========================================================================== */
+
+.edit-creator-profile {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto 56px auto;
+  font-family: inherit;
+  color: #0f172a;
+}
+
+/* Page Header */
+.edit-creator-profile .page-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4ebe4;
+}
+
+.edit-creator-profile .page-header h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #001e00;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.edit-creator-profile .page-header p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #5e6d55;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Error Banner */
+.edit-creator-profile > p {
+  margin: 0 0 20px 0;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Form Container - 2-Column Responsive Grid */
+.edit-creator-profile > form {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 18px;
+  padding: 32px 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 24px;
+}
+
+/* Field Containers */
+.edit-creator-profile > form > div:not(:last-child) {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Bio spans the full width of both columns */
+.edit-creator-profile > form > div:nth-child(1) {
+  grid-column: span 2;
+}
+
+/* Form Labels */
+.edit-creator-profile > form label {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #334155;
+  letter-spacing: 0.01em;
+}
+
+/* Form Inputs & Textarea */
+.edit-creator-profile > form input,
+.edit-creator-profile > form textarea {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.925rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.18s ease;
+}
+
+.edit-creator-profile > form input:focus,
+.edit-creator-profile > form textarea:focus {
+  border-color: #19d895;
+  box-shadow: 0 0 0 3px rgba(25, 216, 149, 0.2);
+  background-color: #ffffff;
+}
+
+.edit-creator-profile > form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Actions Row (Cancel & Save Changes) */
+.edit-creator-profile > form > div:last-child {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Cancel Button */
+.edit-creator-profile > form > div:last-child button[type="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 24px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.edit-creator-profile > form > div:last-child button[type="button"]:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+  color: #1e293b;
+}
+
+/* Save Changes Submit Button (#19d895 Mint Pill) */
+.edit-creator-profile > form > div:last-child button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 28px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(25, 216, 149, 0.28);
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.edit-creator-profile > form > div:last-child button[type="submit"]:hover:not(:disabled) {
+  background-color: #15c586;
+  border-color: #15c586;
+  box-shadow: 0 4px 14px rgba(25, 216, 149, 0.38);
+  transform: translateY(-1px);
+}
+
+.edit-creator-profile > form > div:last-child button[type="submit"]:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .edit-creator-profile > form {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .edit-creator-profile > form > div:nth-child(1),
+  .edit-creator-profile > form > div:last-child {
+    grid-column: span 1;
+  }
+
+  .edit-creator-profile > form > div:last-child {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .edit-creator-profile > form > div:last-child button {
+    width: 100%;
+  }
+}

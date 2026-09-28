@@ -13,7 +13,9 @@ import CreateCampaign from './pages/business/CreateCampaign'
 import CreatorCampaigns from './pages/creator/CreatorCampaigns'
 import CampaignDetails from './pages/creator/CampaignDetails'
 import CreatorApplications from './pages/creator/CreatorApplications'
-import BusinessApplications from './pages/business/BusinessApplications';
+import BusinessApplications from './pages/business/BusinessApplications'
+import EditCreatorProfile from './pages/creator/EditCreatorProfile'
+
 
 function App() {
   return (
@@ -127,6 +129,17 @@ function App() {
               <ProtectedRoute role="business">
                   <DashboardLayout>
                       <BusinessApplications />
+                  </DashboardLayout>
+              </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/creator/profile/edit"
+          element={
+              <ProtectedRoute role="creator">
+                  <DashboardLayout>
+                      <EditCreatorProfile />
                   </DashboardLayout>
               </ProtectedRoute>
           }
