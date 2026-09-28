@@ -52,41 +52,72 @@ const BusinessApplications = () => {
 
     return (
         <div className="business-applications">
-            <h1>Applications</h1>
+
+            <div className="page-header">
+                <h1>Applications</h1>
+                <p>
+                    Review creator applications and manage your campaign opportunities.
+                </p>
+            </div>
 
             {applications.length === 0 ? (
-                <p>You haven't received any applications yet.</p>
+                <p className="applications-empty">
+                    You haven't received any applications yet.
+                </p>
             ) : (
-                <div>
+                <div className="applications-list">
                     {applications.map((application) => (
-                        <div key={application.id}>
+                        <div
+                            className="application-card"
+                            key={application.id}
+                        >
                             <h2>{application.creator_name}</h2>
 
-                            <p>
+                            <p className="application-campaign">
                                 <strong>Campaign:</strong>{' '}
                                 {application.campaign_title}
                             </p>
 
-                            <p>
+                            <p className="application-status">
                                 <strong>Status:</strong>{' '}
                                 {application.status}
                             </p>
 
-                            <p>
+                            <p className="application-message">
                                 <strong>Message:</strong>{' '}
                                 {application.message || 'No message'}
                             </p>
-                            <button onClick={() => handleStatusChange(application.id, 'accepted')}>
-                                Accept
-                            </button>
 
-                            <button onClick={() => handleStatusChange(application.id, 'rejected')}>
-                                Reject
-                            </button>
+                            <div className="application-actions">
+                                <button
+                                    className="accept-button"
+                                    onClick={() =>
+                                        handleStatusChange(
+                                            application.id,
+                                            'accepted'
+                                        )
+                                    }
+                                >
+                                    Accept
+                                </button>
+
+                                <button
+                                    className="reject-button"
+                                    onClick={() =>
+                                        handleStatusChange(
+                                            application.id,
+                                            'rejected'
+                                        )
+                                    }
+                                >
+                                    Reject
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>
             )}
+
         </div>
     )
 }

@@ -859,3 +859,1546 @@ body {
     padding: 10px 16px;
   }
 }
+
+/* ==========================================================================
+   Business & Creator Dashboard Content (Modern SaaS UI with #19d895 Fade)
+   ========================================================================== */
+
+.business-dashboard,
+.creator-dashboard {
+  font-family: inherit;
+  color: #0f172a;
+  width: 100%;
+}
+
+/* 1. Dashboard Welcome Area */
+.dashboard-welcome {
+  margin-bottom: 28px;
+}
+
+.dashboard-welcome h1 {
+  font-size: 1.65rem;
+  font-weight: 400; /* Thin, elegant title weight instead of heavy bold */
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.dashboard-welcome p {
+  font-size: 0.9rem;
+  font-weight: 300; /* Subtle, airy supporting subtitle */
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 2. SaaS Statistics / KPI Cards (Inspired by Donezo) */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.dashboard-stats > div {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 18px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 152px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top-right subtle circular arrow indicator (Donezo style) */
+.dashboard-stats > div::after {
+  content: "↗";
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+}
+
+/* Base Card Icon Box */
+.dashboard-stats > div > svg {
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  border-radius: 11px;
+  background-color: #f8fafc;
+  border: 1px solid #eef2f6;
+  color: #475569;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.dashboard-stats h2 {
+  font-size: 2.4rem;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  line-height: 1;
+}
+
+.dashboard-stats p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Regular Card Hover */
+.dashboard-stats > div:not(:first-child):hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.dashboard-stats > div:not(:first-child):hover::after {
+  border-color: #19d895;
+  background-color: #19d895;
+  color: #042f2e;
+}
+
+/* ==========================================================================
+   FEATURED FIRST CARD: #19d895 Gradient / Fade (Donezo High-End Look)
+   ========================================================================== */
+.dashboard-stats > div:first-child {
+  background: radial-gradient(circle at 85% 15%, rgba(25, 216, 149, 0.42) 0%, transparent 65%),
+              linear-gradient(135deg, #0e3d2b 0%, #08291c 100%);
+  border: 1px solid #14593f;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(14, 61, 43, 0.22);
+}
+
+.dashboard-stats > div:first-child > svg {
+  background-color: rgba(25, 216, 149, 0.16);
+  border-color: rgba(25, 216, 149, 0.35);
+  color: #19d895;
+}
+
+.dashboard-stats > div:first-child h2 {
+  color: #ffffff;
+}
+
+.dashboard-stats > div:first-child p {
+  color: #19d895;
+  font-weight: 500;
+}
+
+.dashboard-stats > div:first-child::after {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.dashboard-stats > div:first-child:hover {
+  transform: translateY(-3px);
+  border-color: #19d895;
+  box-shadow: 0 14px 32px rgba(25, 216, 149, 0.28);
+}
+
+.dashboard-stats > div:first-child:hover::after {
+  background-color: #19d895;
+  border-color: #19d895;
+  color: #042f2e;
+}
+
+/* 3. Quick Actions */
+.quick-actions {
+  margin-bottom: 38px;
+}
+
+.quick-actions h2,
+.recent-campaigns h2,
+.recent-applications h2 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+}
+
+.quick-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  margin-right: 12px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.18s ease;
+}
+
+.quick-actions a svg {
+  font-size: 1rem;
+}
+
+.quick-actions a:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+/* Primary Action Button (#19d895 Accent) */
+.quick-actions a:first-of-type {
+  background-color: #19d895;
+  border-color: #19d895;
+  color: #042f2e;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(25, 216, 149, 0.3);
+}
+
+.quick-actions a:first-of-type:hover {
+  background-color: #16c688;
+  border-color: #16c688;
+  box-shadow: 0 4px 16px rgba(25, 216, 149, 0.4);
+  color: #042f2e;
+}
+
+/* 4. Recent Campaigns & Recent Applications */
+.recent-campaigns,
+.recent-applications {
+  margin-top: 10px;
+}
+
+.recent-campaigns > div,
+.recent-applications > div {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.18s ease;
+}
+
+.recent-campaigns > div:hover,
+.recent-applications > div:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+  transform: translateY(-1px);
+}
+
+.recent-campaigns h3,
+.recent-applications h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin-bottom: 5px;
+  line-height: 1.35;
+}
+
+.recent-campaigns p,
+.recent-applications p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Status Pill for Applications */
+.recent-applications strong {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: rgba(25, 216, 149, 0.12);
+  color: #065f46;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(25, 216, 149, 0.28);
+  margin-left: 6px;
+  letter-spacing: 0.01em;
+}
+
+/* View / Edit Action Link */
+.recent-campaigns a,
+.recent-applications a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 550;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+.recent-campaigns a svg,
+.recent-applications a svg {
+  font-size: 0.875rem;
+  transition: transform 0.15s ease;
+}
+
+.recent-campaigns a:hover,
+.recent-applications a:hover {
+  background-color: #19d895;
+  border-color: #19d895;
+  color: #042f2e;
+  box-shadow: 0 3px 12px rgba(25, 216, 149, 0.3);
+}
+
+.recent-campaigns a:hover svg,
+.recent-applications a:hover svg {
+  transform: translateX(2px);
+}
+
+/* Empty State Message */
+.recent-campaigns > p,
+.recent-applications > p {
+  font-size: 0.875rem;
+  color: #64748b;
+  padding: 32px 20px;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+  text-align: center;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .quick-actions a {
+    width: 100%;
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .recent-campaigns > div,
+  .recent-applications > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+  }
+
+  .recent-campaigns a,
+  .recent-applications a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Creator Applications (Modern SaaS Card Design)
+   ========================================================================== */
+
+.creator-applications {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto 48px auto;
+  font-family: inherit;
+  color: #0f172a;
+}
+
+/* Page Header */
+.creator-applications .page-header {
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.creator-applications .page-header h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.creator-applications .page-header p {
+  font-size: 0.925rem;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Applications Stack Container */
+.creator-applications > div:last-child:not(.page-header) {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Individual Application Card */
+.creator-applications > div:last-child > div {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.creator-applications > div:last-child > div:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Campaign Title */
+.creator-applications > div:last-child > div > h2 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Status Badge (Warm Modern Orange for Pending) */
+.creator-applications > div:last-child > div > p:nth-of-type(1) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.775rem;
+  font-weight: 600;
+  background-color: #c0f6e7;
+  color: #065f46;
+  border: 1px solid #53e2ba;
+  width: fit-content;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.creator-applications > div:last-child > div > p:nth-of-type(1) strong {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #065f46;
+  opacity: 0.85;
+}
+
+/* Message Callout Box */
+.creator-applications > div:last-child > div > p:nth-of-type(2) {
+  background-color: #f8fafc;
+  border: 1px solid #edf0f4;
+  border-left: 3.5px solid #19d895;
+  border-radius: 4px 12px 12px 4px;
+  padding: 12px 16px;
+  font-size: 0.885rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 2px 0 4px 0;
+}
+
+.creator-applications > div:last-child > div > p:nth-of-type(2) strong {
+  display: block;
+  font-size: 0.725rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+/* Primary Action: "View Campaign" Button */
+.creator-applications > div:last-child > div > a {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 6px;
+  margin-right: 10px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.creator-applications > div:last-child > div > a:hover {
+  background-color: #19d895;
+  border-color: #19d895;
+  color: #042f2e;
+  box-shadow: 0 2px 10px rgba(25, 216, 149, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Secondary / Destructive Action: "Withdraw Application" Button */
+.creator-applications > div:last-child > div > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.creator-applications > div:last-child > div > button:hover {
+  background-color: #fef2f2;
+  border-color: #f87171;
+  color: #b91c1c;
+}
+
+/* Empty State */
+.creator-applications > p {
+  padding: 56px 24px;
+  background-color: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+  margin: 16px 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .creator-applications > div:last-child > div {
+    padding: 20px 18px;
+  }
+
+  .creator-applications > div:last-child > div > a,
+  .creator-applications > div:last-child > div > button {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 6px;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Creator Campaigns - "Find Campaigns" (Upwork Job Feed Style)
+   ========================================================================== */
+
+.creator-campaigns {
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto 48px auto;
+  font-family: inherit;
+  color: #001e00;
+}
+
+/* Page Header */
+.creator-campaigns > h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #001e00;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4ebe4;
+}
+
+/* Campaign List Feed (Flat Feed - No Outer Border) */
+.creator-campaigns > div:last-child {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Campaign Row (Separated strictly by a clean bottom line) */
+.creator-campaigns > div:last-child > div {
+  padding: 24px 0 26px 0;
+  border: none;
+  border-bottom: 1px solid #e4ebe4;
+  background: transparent;
+  transition: background-color 0.15s ease;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+/* 1. Campaign Title (Upwork Job Offer Heading - Turns Green on Hover) */
+.creator-campaigns > div:last-child > div > h2 {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #001e00;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.creator-campaigns > div:last-child > div:hover > h2 {
+  color: #108a00;
+  text-decoration: underline;
+}
+
+/* 2. Description (Clean Body Paragraph) */
+.creator-campaigns > div:last-child > div > p:nth-of-type(1) {
+  width: 100%;
+  font-size: 0.9rem;
+  color: #2b332b;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+  max-width: 92ch;
+}
+
+/* 3. Metadata Tags (Location, Budget, Deadline - Upwork Style Pill Badges) */
+.creator-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 8px 10px 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: #f2f7f2;
+  color: #5e6d55;
+  font-size: 0.815rem;
+  font-weight: 500;
+  border: none;
+  white-space: nowrap;
+}
+
+.creator-campaigns > div:last-child > div > p:not(:nth-of-type(1)) strong {
+  font-weight: 600;
+  color: #001e00;
+}
+
+/* Budget Tag Highlight (#19d895 Soft Mint Accent) */
+.creator-campaigns > div:last-child > div > p:nth-of-type(3) {
+  background-color: rgba(25, 216, 149, 0.14);
+  color: #065f46;
+}
+
+.creator-campaigns > div:last-child > div > p:nth-of-type(3) strong {
+  color: #064e3b;
+}
+
+/* 4. Primary Action: "View Campaign" Button */
+.creator-campaigns > div:last-child > div > a {
+  margin-left: auto;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 20px;
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #19d895;
+  color: #042f2e;
+  border: 1px solid #19d895;
+  box-shadow: 0 1px 3px rgba(25, 216, 149, 0.2);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.creator-campaigns > div:last-child > div > a:hover {
+  background-color: #15c586;
+  border-color: #15c586;
+  box-shadow: 0 3px 10px rgba(25, 216, 149, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Empty State */
+.creator-campaigns > p {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ebe4;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #5e6d55;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .creator-campaigns > div:last-child > div {
+    padding: 20px 0;
+  }
+
+  .creator-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .creator-campaigns > div:last-child > div > a {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Campaign Details & Application (Modern SaaS Details Page)
+   ========================================================================== */
+
+.campaign-details {
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto 56px auto;
+  font-family: inherit;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Campaign Title */
+.campaign-details > h1 {
+  font-size: 1.85rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+/* 2. Campaign Description */
+.campaign-details > p:nth-of-type(1) {
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.7;
+  margin: 0 0 22px 0;
+}
+
+/* 3. Metadata Tags (Location, Budget, Deadline - Modern Pills) */
+.campaign-details > p:nth-of-type(2),
+.campaign-details > p:nth-of-type(3),
+.campaign-details > p:nth-of-type(4) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 10px 10px 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: #f8fafc;
+  border: 1px solid #edf0f4;
+  font-size: 0.84rem;
+  color: #475569;
+  width: fit-content;
+}
+
+.campaign-details > p:nth-of-type(2) strong,
+.campaign-details > p:nth-of-type(3) strong,
+.campaign-details > p:nth-of-type(4) strong {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+}
+
+/* Highlight Budget Tag (#19d895 Mint Accent) */
+.campaign-details > p:nth-of-type(3) {
+  background-color: rgba(25, 216, 149, 0.12);
+  border-color: rgba(25, 216, 149, 0.28);
+  color: #065f46;
+}
+
+.campaign-details > p:nth-of-type(3) strong {
+  color: #064e3b;
+}
+
+/* 4. "Apply for this campaign" Section Heading */
+.campaign-details > h2 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: #0f172a;
+  margin: 28px 0 14px 0;
+  padding-top: 24px;
+  border-top: 1px solid #edf0f4;
+}
+
+/* 5. Message Textarea */
+.campaign-details > textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  resize: vertical;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.18s ease;
+  outline: none;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.campaign-details > textarea:focus {
+  border-color: #19d895;
+  box-shadow: 0 0 0 3px rgba(25, 216, 149, 0.2);
+}
+
+.campaign-details > textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* 6. Primary "Apply" Action Button */
+.campaign-details > button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 28px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
+  font-size: 0.885rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(25, 216, 149, 0.3);
+  transition: all 0.18s ease;
+  outline: none;
+  white-space: nowrap;
+}
+
+.campaign-details > button:hover:not(:disabled) {
+  background-color: #16c688;
+  border-color: #16c688;
+  box-shadow: 0 4px 14px rgba(25, 216, 149, 0.4);
+  transform: translateY(-1px);
+}
+
+.campaign-details > button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 7. Status / Feedback Notification Banner */
+.campaign-details > p:nth-of-type(5) {
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background-color: rgba(25, 216, 149, 0.1);
+  border: 1px solid rgba(25, 216, 149, 0.28);
+  color: #065f46;
+  font-size: 0.885rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .campaign-details {
+    padding: 0 4px;
+  }
+
+  .campaign-details > h1 {
+    font-size: 1.55rem;
+  }
+
+  .campaign-details > p:nth-of-type(2),
+  .campaign-details > p:nth-of-type(3),
+  .campaign-details > p:nth-of-type(4) {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .campaign-details > button {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Business Campaigns - "My Campaigns" (Upwork Feed Style)
+   ========================================================================== */
+
+.business-campaigns {
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto 48px auto;
+  font-family: inherit;
+  color: #001e00;
+}
+
+/* Page Header (Title + Create Campaign Button) */
+.business-campaigns > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4ebe4;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.business-campaigns > div:first-child h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #001e00;
+  margin: 0;
+}
+
+/* Primary "Create Campaign" Pill Button */
+.business-campaigns > div:first-child a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background-color: #19d895;
+  color: #042f2e;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(25, 216, 149, 0.2);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.business-campaigns > div:first-child a:hover {
+  background-color: #15c586;
+  box-shadow: 0 3px 10px rgba(25, 216, 149, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Campaign List Feed (Flat Feed - No Outer Border) */
+.business-campaigns > div:last-child {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Campaign Row (Separated by clean bottom divider line) */
+.business-campaigns > div:last-child > div {
+  padding: 24px 0 26px 0;
+  border: none;
+  border-bottom: 1px solid #e4ebe4;
+  background: transparent;
+  transition: background-color 0.15s ease;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+/* 1. Campaign Title (Turns Green on Hover) */
+.business-campaigns > div:last-child > div > h2 {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #001e00;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.business-campaigns > div:last-child > div:hover > h2 {
+  color: #108a00;
+  text-decoration: underline;
+}
+
+/* 2. Description (Body Text) */
+.business-campaigns > div:last-child > div > p:nth-of-type(1) {
+  width: 100%;
+  font-size: 0.9rem;
+  color: #2b332b;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+  max-width: 92ch;
+}
+
+/* 3. Metadata Tags (Location, Budget, Deadline - Upwork Style Pill Badges) */
+.business-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 8px 10px 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: #f2f7f2;
+  color: #5e6d55;
+  font-size: 0.815rem;
+  font-weight: 500;
+  border: none;
+  white-space: nowrap;
+}
+
+.business-campaigns > div:last-child > div > p:not(:nth-of-type(1)) strong {
+  font-weight: 600;
+  color: #001e00;
+}
+
+/* Budget Tag Highlight (#19d895 Soft Mint Accent) */
+.business-campaigns > div:last-child > div > p:nth-of-type(3) {
+  background-color: rgba(25, 216, 149, 0.14);
+  color: #065f46;
+}
+
+.business-campaigns > div:last-child > div > p:nth-of-type(3) strong {
+  color: #064e3b;
+}
+
+/* 4. Action: "Edit" Button */
+.business-campaigns > div:last-child > div > a {
+  margin-left: auto;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #19d895;
+  color: #042f2e;
+  border: 1px solid #19d895;
+  box-shadow: 0 1px 3px rgba(25, 216, 149, 0.2);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.business-campaigns > div:last-child > div > a:hover {
+  background-color: #15c586;
+  border-color: #15c586;
+  box-shadow: 0 3px 10px rgba(25, 216, 149, 0.35);
+  transform: translateY(-1px);
+}
+
+/* 5. Action: "Delete" Button */
+.business-campaigns > div:last-child > div > button {
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.business-campaigns > div:last-child > div > button:hover {
+  background-color: #fef2f2;
+  border-color: #f87171;
+  color: #b91c1c;
+}
+
+/* Empty State */
+.business-campaigns > p {
+  padding: 48px 0;
+  border-bottom: 1px solid #e4ebe4;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #5e6d55;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .business-campaigns > div:last-child > div {
+    padding: 20px 0;
+  }
+
+  .business-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .business-campaigns > div:last-child > div > a,
+  .business-campaigns > div:last-child > div > button {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Business Applications (Upwork-Inspired Feed & SaaS Card Layout)
+   ========================================================================== */
+
+/* Main Container */
+.business-applications {
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto 48px auto;
+  font-family: inherit;
+  color: #001e00;
+}
+
+/* Page Header */
+.business-applications .page-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4ebe4;
+}
+
+.business-applications .page-header h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #001e00;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.business-applications .page-header p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #5e6d55;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Applications Feed Container (Clean Upwork Stack) */
+.applications-list {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Application Card (Row separated by subtle bottom divider) */
+.application-card {
+  padding: 24px 0 26px 0;
+  border-bottom: 1px solid #e4ebe4;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  transition: background-color 0.15s ease;
+}
+
+/* 1. Creator Name Heading */
+.application-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #001e00;
+  margin: 0;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.application-card:hover h2 {
+  color: #108a00;
+}
+
+/* 2. Campaign Secondary Tag */
+.application-campaign {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.815rem;
+  font-weight: 500;
+  color: #5e6d55;
+  background-color: #f2f7f2;
+  border-radius: 999px;
+  padding: 4px 12px;
+  width: fit-content;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.application-campaign strong {
+  font-weight: 600;
+  color: #001e00;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+/* 3. Status Badges */
+.application-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.775rem;
+  font-weight: 600;
+  width: fit-content;
+  margin: 0;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.application-status strong {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+/* Status: Pending (Warning / Warm Neutral) */
+.application-status,
+.application-status:has(span:contains("pending")),
+.status-pending {
+  background-color: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.application-status strong {
+  color: #9a3412;
+}
+
+/* Status: Accepted (Success / Green #19d895 tint) */
+.application-status.accepted,
+.application-card[data-status="accepted"] .application-status,
+.status-accepted {
+  background-color: rgba(25, 216, 149, 0.14) !important;
+  color: #065f46 !important;
+  border: 1px solid rgba(25, 216, 149, 0.3) !important;
+}
+
+.application-status.accepted strong,
+.status-accepted strong {
+  color: #064e3b !important;
+}
+
+/* Status: Rejected (Danger / Soft Red) */
+.application-status.rejected,
+.application-card[data-status="rejected"] .application-status,
+.status-rejected {
+  background-color: #fef2f2 !important;
+  color: #dc2626 !important;
+  border: 1px solid #fecaca !important;
+}
+
+.application-status.rejected strong,
+.status-rejected strong {
+  color: #991b1b !important;
+}
+
+/* 4. Message Box (Readable and Secondary) */
+.application-message {
+  font-size: 0.9rem;
+  color: #2b332b;
+  line-height: 1.6;
+  background-color: #f9fbf9;
+  border: 1px solid #e4ebe4;
+  border-left: 3px solid #19d895;
+  border-radius: 4px 10px 10px 4px;
+  padding: 12px 16px;
+  margin: 2px 0 4px 0;
+  max-width: 92ch;
+}
+
+.application-message strong {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #5e6d55;
+  margin-bottom: 4px;
+}
+
+/* 5. Action Buttons Container */
+.application-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+/* Accept Button (Primary Positive Action - #19d895) */
+.accept-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 20px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(25, 216, 149, 0.2);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.accept-button:hover {
+  background-color: #15c586;
+  border-color: #15c586;
+  box-shadow: 0 3px 10px rgba(25, 216, 149, 0.35);
+  transform: translateY(-1px);
+}
+
+.accept-button:active {
+  transform: translateY(0);
+}
+
+/* Reject Button (Secondary Destructive Action) */
+.reject-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background-color: transparent;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  font-size: 0.825rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.reject-button:hover {
+  background-color: #fef2f2;
+  border-color: #f87171;
+  color: #b91c1c;
+}
+
+.reject-button:active {
+  transform: translateY(0);
+}
+
+/* 6. Polished Empty State */
+.applications-empty {
+  padding: 56px 24px;
+  border-bottom: 1px solid #e4ebe4;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #5e6d55;
+  font-weight: 500;
+  margin: 0;
+  background-color: transparent;
+}
+
+/* 7. Responsive Adjustments */
+@media (max-width: 768px) {
+  .application-card {
+    padding: 20px 0;
+  }
+
+  .application-campaign,
+  .application-status {
+    width: 100%;
+  }
+
+  .application-actions {
+    width: 100%;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .accept-button,
+  .reject-button {
+    flex: 1;
+  }
+}
+
+/* ==========================================================================
+   Create Campaign (Clean Modern SaaS Form Design)
+   ========================================================================== */
+
+.create-campaign {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto 56px auto;
+  font-family: inherit;
+  color: #0f172a;
+}
+
+/* Form Page Header */
+.create-campaign > h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #001e00;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4ebe4;
+}
+
+/* Form Card Container */
+.create-campaign > form {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 18px;
+  padding: 32px 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Inputs & Textarea Shared Styles */
+.create-campaign > form input,
+.create-campaign > form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.925rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.18s ease;
+}
+
+.create-campaign > form input::placeholder,
+.create-campaign > form textarea::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.create-campaign > form input:focus,
+.create-campaign > form textarea:focus {
+  border-color: #19d895;
+  box-shadow: 0 0 0 3px rgba(25, 216, 149, 0.2);
+  background-color: #ffffff;
+}
+
+/* Description Textarea */
+.create-campaign > form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Date Input */
+.create-campaign > form input[type="date"] {
+  color: #475569;
+  cursor: pointer;
+}
+
+/* Submit Button (#19d895 Mint Pill) */
+.create-campaign > form button[type="submit"] {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 32px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(25, 216, 149, 0.28);
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  outline: none;
+  margin-top: 6px;
+}
+
+.create-campaign > form button[type="submit"]:hover {
+  background-color: #15c586;
+  border-color: #15c586;
+  box-shadow: 0 4px 14px rgba(25, 216, 149, 0.38);
+  transform: translateY(-1px);
+}
+
+.create-campaign > form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Error Message Banner */
+.create-campaign > form p {
+  margin: 4px 0 0 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .create-campaign > form {
+    padding: 22px 20px;
+    border-radius: 14px;
+  }
+
+  .create-campaign > form button[type="submit"] {
+    width: 100%;
+  }
+}

@@ -48,7 +48,9 @@ function App() {
           path='/business/profile'
           element={
             <ProtectedRoute role="business">
-              <BusinessProfile />
+              <DashboardLayout>
+                <BusinessProfile />
+              </DashboardLayout>
             </ProtectedRoute>
           }
         />

@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react'
 import api from '../../services/api'
 import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
+import { FaInstagram } from 'react-icons/fa'
+import {
+    FiBriefcase,
+    FiMapPin,
+    FiGlobe,
+    FiTag,
+    FiEdit,
+    FiTrash2
+} from 'react-icons/fi'
 
 const BusinessProfile = () => {
     const [profile, setProfile] = useState(null)
@@ -38,7 +47,6 @@ const BusinessProfile = () => {
     }
 
     return (
-        <DashboardLayout>
             <div className='business-profile'>
                 <ProfileHeader 
                     name={user?.name} 
@@ -49,7 +57,7 @@ const BusinessProfile = () => {
                         <h2>Business Information</h2>
 
                         <p>
-                            <strong>Business Name:</strong>{' '}
+                            <FiBriefcase />{' '}
                             {profile?.business_name}
                         </p>
 
@@ -59,33 +67,37 @@ const BusinessProfile = () => {
                         </p>
 
                         <p>
-                            <strong>Location:</strong>{' '}
+                            <FiMapPin />{' '}
                             {profile?.location}
                         </p>
 
                         <p>
-                            <strong>Website:</strong>{' '}
+                            <FiGlobe />{' '}
                             {profile?.website}
                         </p>
 
                         <p>
-                            <strong>Instagram:</strong>{' '}
+                            <FaInstagram />{' '}
                             {profile?.instagram}
                         </p>
 
                         <p>
-                            <strong>Industry:</strong>{' '}
+                            <FiTag />{' '}
                             {profile?.industry}
                         </p>
                     </div>
 
                     <div className="profile-actions">
-                        <Link to="/business/profile/edit">Edit</Link>
-                        <button>Delete</button>
+                        <Link to="/business/profile/edit">
+                            <FiEdit /> Edit
+                        </Link>
+
+                        <button>
+                            <FiTrash2 /> Delete
+                        </button>
                     </div>
                 </section>
             </div>
-        </DashboardLayout>
     )
 }
 

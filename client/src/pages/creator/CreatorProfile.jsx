@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import api from '../../services/api'
 import ProfileHeader from '../../components/ProfileHeader'
 import { FaInstagram, FaTiktok } from 'react-icons/fa'
+import { FiMapPin, FiUsers, FiTag, FiEdit, FiTrash2 } from 'react-icons/fi'
 
 const CreatorProfile = () => {
     const { user } = useAuth()
@@ -55,7 +56,7 @@ const CreatorProfile = () => {
                     </p>
 
                     <p>
-                        <strong>Location:</strong>{' '}
+                        <FiMapPin />{' '}
                         {profile?.location}
                     </p>
 
@@ -65,8 +66,8 @@ const CreatorProfile = () => {
                     </p>
 
                     <p>
-                        <strong>Instagram Followers:</strong>{' '}
-                        {profile?.instagram_followers}
+                        <FiUsers />{' '}
+                        {profile?.instagram_followers} followers
                     </p>
 
                     <p>
@@ -75,23 +76,23 @@ const CreatorProfile = () => {
                     </p>
 
                     <p>
-                        <strong>TikTok Followers:</strong>{' '}
-                        {profile?.tiktok_followers}
+                        <FiUsers />{' '}
+                        {profile?.tiktok_followers} followers
                     </p>
 
                     <p>
-                        <strong>Niche:</strong>{' '}
+                        <FiTag />{' '}
                         {profile?.niche}
                     </p>
                 </div>
 
                 <div className="profile-actions">
                     <Link to="/creator/profile/edit">
-                        Edit
+                        <FiEdit /> Edit
                     </Link>
 
                     <button>
-                        Delete
+                        <FiTrash2 /> Delete
                     </button>
                 </div>
             </section>

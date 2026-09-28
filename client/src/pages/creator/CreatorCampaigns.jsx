@@ -63,7 +63,7 @@ const CreatorCampaigns = () => {
                             </p>
 
                             <Link to={`/creator/campaigns/${campaign.id}`}>
-                                View Campaign
+                                Apply / Details
                             </Link>
                         </div>
                     ))}

@@ -25,6 +25,20 @@ const CreatorApplications = () => {
         getApplications()
     }, [])
 
+    const handleDelete = async (applicationId) => {
+        try {
+            await api.delete(`/applications/${applicationId}`)
+
+            setApplications((currentApplications) =>
+                currentApplications.filter(
+                    (application) => application.id !== applicationId
+                )
+            )
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     if (loading) {
         return <p>Loading applications...</p>
     }
@@ -35,7 +49,12 @@ const CreatorApplications = () => {
 
     return (
         <div className="creator-applications">
-            <h1>My Applications</h1>
+            <div className="page-header">
+                <h1>My Applications</h1>
+                <p>
+                    Track the campaigns you've applied to and check their status.
+                </p>
+            </div>
 
             {applications.length === 0 ? (
                 <p>You haven't applied to any campaigns yet.</p>
@@ -60,6 +79,12 @@ const CreatorApplications = () => {
                             >
                                 View Campaign
                             </Link>
+
+                            <button
+                                onClick={() => handleDelete(application.id)}
+                            >
+                                Withdraw Application
+                            </button>
                         </div>
                     ))}
                 </div>
