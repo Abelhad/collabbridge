@@ -63,7 +63,7 @@ const BusinessCampaigns = () => {
 
                             <p>
                                 <strong>Budget:</strong>{' '}
-                                {campaign.budget || 'Not specified'}
+                                {`${campaign.budget} $` || 'Not specified'}
                             </p>
 
                             <p>
