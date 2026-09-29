@@ -29,6 +29,26 @@ const BusinessCampaigns = () => {
         return new Date(date).toLocaleDateString('en-CA')
     }
 
+    const handleDelete = async (campaignId) => {
+    const confirmed = window.confirm(
+        'Are you sure you want to delete this campaign?'
+    )
+
+    if (!confirmed) return
+
+    try {
+        await api.delete(`/campaigns/${campaignId}`)
+
+        setCampaigns((currentCampaigns) =>
+            currentCampaigns.filter(
+                (campaign) => campaign.id !== campaignId
+            )
+        )
+    } catch (error) {
+        console.error(error)
+    }
+}
+
     if (loading) {
         return <p>Loading campaigns...</p>
     }
@@ -75,7 +95,7 @@ const BusinessCampaigns = () => {
                                 Edit
                             </Link>
 
-                            <button>Delete</button>
+                            <button onClick={() => handleDelete(campaign.id)}>Delete</button>
                         </div>
                     ))}
                 </div>
