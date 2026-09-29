@@ -25,6 +25,10 @@ const CreatorCampaigns = () => {
         getCampaigns()
     }, [])
 
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString('en-CA')
+    }
+
     if (loading) {
         return <p>Loading campaigns...</p>
     }
@@ -59,7 +63,7 @@ const CreatorCampaigns = () => {
 
                             <p>
                                 <strong>Deadline:</strong>{' '}
-                                {campaign.deadline || 'Not specified'}
+                                {formatDate(campaign.deadline) || 'Not specified'}
                             </p>
 
                             <Link to={`/creator/campaigns/${campaign.id}`}>
