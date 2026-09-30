@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { FaInstagram, FaTiktok } from 'react-icons/fa'
 import api from '../../services/api'
 
 const BusinessApplications = () => {
@@ -72,6 +74,29 @@ const BusinessApplications = () => {
                             key={application.id}
                         >
                             <h2>{application.creator_name}</h2>
+
+                            <p className="application-social">
+                                <FaInstagram />{' '}
+                                {application.instagram || 'Not specified'}{' '}
+                                {application.instagram_followers
+                                    ? `(${application.instagram_followers} followers)`
+                                    : ''}
+                            </p>
+
+                            <p className="application-social">
+                                <FaTiktok />{' '}
+                                {application.tiktok || 'Not specified'}{' '}
+                                {application.tiktok_followers
+                                    ? `(${application.tiktok_followers} followers)`
+                                    : ''}
+                            </p>
+
+                            <Link
+                                className="profile-details-link"
+                                to={`/business/creators/${application.creator_id}`}
+                            >
+                                Profile Details
+                            </Link>
 
                             <p className="application-campaign">
                                 <strong>Campaign:</strong>{' '}

@@ -190,16 +190,31 @@ const getMyCampaignApplications = async (req, res) => {
                 applications.status,
                 applications.message,
                 applications.created_at,
+
                 campaigns.id AS campaign_id,
                 campaigns.title AS campaign_title,
+
                 users.id AS creator_id,
-                users.name AS creator_name
+                users.name AS creator_name,
+
+                profiles.instagram,
+                profiles.instagram_followers,
+                profiles.tiktok,
+                profiles.tiktok_followers
+
             FROM applications
+
             JOIN campaigns
                 ON applications.campaign_id = campaigns.id
+
             JOIN users
                 ON applications.creator_id = users.id
+
+            JOIN profiles
+                ON profiles.user_id = users.id
+
             WHERE campaigns.business_id = $1
+
             ORDER BY applications.created_at DESC`,
             [businessId]
         )

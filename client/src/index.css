@@ -308,328 +308,87 @@ body {
   }
 }
 
-/* ==========================================================================
-   Business Profile & ProfileHeader (Modern Modular Bento Card Style)
-   ========================================================================== */
-
-/* Outer Profile Card with clean border & subtle elevation */
-.business-profile {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  position: relative;
-}
-
-/* Profile Header Section with Ambient Gradient */
-.profile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 36px;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-  border-bottom: 1px solid #eef2f6;
-  gap: 20px;
-}
-
-.profile-header h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #0f172a;
-  letter-spacing: -0.025em;
-  margin-bottom: 4px;
-}
-
-.profile-header p {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #64748b;
-  font-weight: 500;
-}
-
-/* Primary Action Button (Gradient with Soft Shadow) */
-.profile-header a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #1ab37e 0%, #159a6c 100%);
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(26, 179, 126, 0.25);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.profile-header a:hover {
-  background: linear-gradient(135deg, #159a6c 0%, #118059 100%);
-  box-shadow: 0 4px 14px rgba(26, 179, 126, 0.35);
-  transform: translateY(-1px);
-}
-
-/* Business Info Section Container */
-.business-info {
-  position: relative;
-  padding: 36px;
-}
-
-/* 2-Column Responsive Bento Grid */
-.business-info > div:first-child {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.business-info h2 {
-  grid-column: 1 / -1;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #0f172a;
-  letter-spacing: -0.015em;
-  margin-bottom: 8px;
-}
-
-/* Modular Information Tiles */
-.business-info p {
-  margin: 0;
-  padding: 18px 20px;
-  background-color: #f8fafc;
-  border: 1px solid #eef2f6;
-  border-radius: 14px;
-  font-size: 0.95rem;
-  color: #1e293b;
-  line-height: 1.5;
-  transition: all 0.18s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.business-info p:hover {
-  background-color: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-}
-
-.business-info strong {
-  display: block;
-  font-size: 0.725rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #64748b;
-  margin-bottom: 6px;
-}
-
-/* Featured Description Card (Spanning full width) */
-.business-info p:nth-of-type(2) {
-  grid-column: 1 / -1;
-  background-color: #f8fafc;
-  border: 1px solid #eef2f6;
-  padding: 20px 24px;
-  font-size: 0.95rem;
-  color: #334155;
-  line-height: 1.65;
-}
-
-.business-info p:nth-of-type(2):hover {
-  background-color: #ffffff;
-}
-
-/* Top-Right Action Controls */
-.profile-actions {
-  position: absolute;
-  top: 36px;
-  right: 36px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Orange Edit Button */
-.profile-actions a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 18px;
-  border-radius: 9px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  background-color: #f97316;
-  color: #ffffff;
-  border: 1px solid #ea580c;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: all 0.15s ease;
-}
-
-.profile-actions a:hover {
-  background-color: #ea580c;
-  border-color: #c2410c;
-  transform: translateY(-1px);
-}
-
-/* Modern Soft Danger Delete Action */
-.profile-actions button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 18px;
-  border-radius: 9px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  background-color: #fef2f2;
-  color: #dc2626;
-  border: 1px solid #fecaca;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.profile-actions button:hover {
-  background-color: #fee2e2;
-  border-color: #f87171;
-  color: #b91c1c;
-  transform: translateY(-1px);
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .business-profile {
-    border-radius: 16px;
-  }
-
-  .profile-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 20px;
-    gap: 16px;
-  }
-
-  .profile-header a {
-    width: 100%;
-    text-align: center;
-  }
-
-  .business-info {
-    padding: 24px 20px;
-  }
-
-  .business-info > div:first-child {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .business-info p:nth-of-type(2) {
-    grid-column: 1;
-  }
-
-  .profile-actions {
-    position: static;
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
-    gap: 10px;
-  }
-
-  .profile-actions a,
-  .profile-actions button {
-    flex: 1;
-    padding: 10px 16px;
-  }
-}
 
 /* ==========================================================================
-   Business & Creator Profile & ProfileHeader (Modern Modular Bento Card Style)
+   Modern Profile Showcase (BusinessProfile & CreatorProfile)
    ========================================================================== */
 
-/* Outer Profile Card with clean border & subtle elevation */
+/* Main Containers */
 .business-profile,
 .creator-profile {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  position: relative;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto 56px auto;
+  font-family: inherit;
+  color: #0f172a;
 }
 
-/* Loading & Error States */
-.profile-loading,
-.profile-error {
-  padding: 48px 36px;
-  text-align: center;
-  font-size: 1rem;
-  color: #64748b;
-  font-weight: 500;
-}
-
-.profile-error {
-  color: #dc2626;
-}
-
-/* Profile Header Section with Ambient Gradient */
+/* ==========================================================================
+   1. Hero ProfileHeader (Shared Emerald Gradient Banner)
+   ========================================================================== */
 .profile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 36px;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-  border-bottom: 1px solid #eef2f6;
-  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #042f2e 100%);
+  border-radius: 20px;
+  padding: 40px 36px 36px 36px;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(6, 78, 59, 0.15);
+  margin-bottom: 24px;
+}
+
+/* Subtle decorative glowing mesh ring */
+.profile-header::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25, 216, 149, 0.22) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .profile-header h1 {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #0f172a;
   letter-spacing: -0.025em;
-  margin-bottom: 4px;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
 }
 
 .profile-header p {
   display: inline-flex;
   align-items: center;
-  font-size: 0.9rem;
-  color: #64748b;
-  font-weight: 500;
+  gap: 8px;
+  font-size: 0.885rem;
+  color: #d1fae5;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: fit-content;
 }
 
-/* Primary Action Button (Gradient with Soft Shadow) */
-.profile-header a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #1ab37e 0%, #159a6c 100%);
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(26, 179, 126, 0.25);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.profile-header a:hover {
-  background: linear-gradient(135deg, #159a6c 0%, #118059 100%);
-  box-shadow: 0 4px 14px rgba(26, 179, 126, 0.35);
-  transform: translateY(-1px);
-}
-
-/* Info Section Container */
+/* ==========================================================================
+   2. Information Card (2-Column Grid Layout)
+   ========================================================================== */
 .business-info,
 .creator-info {
-  position: relative;
-  padding: 36px;
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-/* 2-Column Responsive Bento Grid */
 .business-info > div:first-child,
 .creator-info > div:first-child {
   display: grid;
@@ -637,214 +396,225 @@ body {
   gap: 16px;
 }
 
+/* Section Title */
 .business-info h2,
 .creator-info h2 {
-  grid-column: 1 / -1;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #0f172a;
+  grid-column: span 2;
+  font-size: 1.15rem;
+  font-weight: 650;
   letter-spacing: -0.015em;
-  margin-bottom: 8px;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-/* Modular Information Tiles */
-.business-info p,
-.creator-info p {
-  margin: 0;
-  padding: 18px 20px;
-  background-color: #f8fafc;
-  border: 1px solid #eef2f6;
-  border-radius: 14px;
+/* Description (Business) & Bio (Creator) - Full-Width Feature Callout */
+.business-info > div:first-child > p:nth-of-type(2),
+.creator-info > div:first-child > p:nth-of-type(1) {
+  grid-column: span 2;
   font-size: 0.95rem;
-  color: #1e293b;
-  line-height: 1.5;
-  transition: all 0.18s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  line-height: 1.65;
+  color: #334155;
+  background-color: #f8fafc;
+  border: 1px solid #edf0f4;
+  border-left: 4px solid #19d895;
+  border-radius: 6px 14px 14px 6px;
+  padding: 16px 20px;
+  margin: 4px 0 6px 0;
 }
 
-.business-info p:hover,
-.creator-info p:hover {
-  background-color: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-}
-
-.business-info strong,
-.creator-info strong {
+.business-info > div:first-child > p:nth-of-type(2) strong,
+.creator-info > div:first-child > p:nth-of-type(1) strong {
   display: block;
-  font-size: 0.725rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: #64748b;
   margin-bottom: 6px;
 }
 
-/* Featured Bio & Description Cards (Spanning full width across the top) */
-.business-info p:nth-of-type(2),
-.creator-info p:first-of-type {
-  grid-column: 1 / -1;
-  background-color: #f8fafc;
-  border: 1px solid #eef2f6;
-  padding: 20px 24px;
-  font-size: 0.95rem;
-  color: #334155;
-  line-height: 1.65;
-  order: 1;
-}
-
-.business-info p:nth-of-type(2):hover,
-.creator-info p:first-of-type:hover {
-  background-color: #ffffff;
-}
-
-/* Creator Bento Card Pairing */
-.creator-info p:nth-of-type(2) {
-  order: 2;
-  font-weight: 500;
-}
-
-.creator-info p:nth-of-type(7) {
-  order: 2;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-/* Social Media Handle Tiles with react-icons (FaInstagram & FaTiktok) */
-.creator-info p:nth-of-type(3),
-.creator-info p:nth-of-type(5),
-.creator-info p:has(svg) {
+/* Business Name Card (Full Width Highlight) */
+.business-info > div:first-child > p:nth-of-type(1) {
+  grid-column: span 2;
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 12px;
-  font-size: 1rem;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  border: 1px solid #edf0f4;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #0f172a;
+  margin: 0;
 }
 
-.creator-info p:nth-of-type(3) {
-  order: 3;
+.business-info > div:first-child > p:nth-of-type(1) svg {
+  color: #059669;
+  font-size: 1.25rem;
 }
 
-.creator-info p:nth-of-type(4) {
-  order: 3;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #0f172a;
+/* Individual Channel & Attribute Cards (Location, Website, Instagram, Niche, etc.) */
+.business-info > div:first-child > p:not(:nth-of-type(1)):not(:nth-of-type(2)),
+.creator-info > div:first-child > p:not(:nth-of-type(1)) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.creator-info p:nth-of-type(5) {
-  order: 4;
+.business-info > div:first-child > p:not(:nth-of-type(1)):not(:nth-of-type(2)):hover,
+.creator-info > div:first-child > p:not(:nth-of-type(1)):hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transform: translateY(-1px);
 }
 
-.creator-info p:nth-of-type(6) {
-  order: 4;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-/* Icon specific sizing & brand colors */
-.creator-info p svg {
+/* Icon Styles */
+.business-info svg,
+.creator-info svg {
+  font-size: 1.2rem;
+  color: #64748b;
   flex-shrink: 0;
-  transition: transform 0.15s ease;
 }
 
-.creator-info p:nth-of-type(3) svg {
-  font-size: 1.45rem;
+/* Channel & Social Accents */
+.business-info svg.fa-instagram,
+.creator-info svg.fa-instagram {
   color: #e1306c;
 }
 
-.creator-info p:nth-of-type(5) svg {
-  font-size: 1.4rem;
-  color: #111827;
+.business-info svg.fa-tiktok,
+.creator-info svg.fa-tiktok {
+  color: #0f172a;
 }
 
-.creator-info p:hover svg {
-  transform: scale(1.08);
+/* Website Link Styling */
+.business-info > div:first-child > p:nth-of-type(4) svg {
+  color: #2563eb;
 }
 
-/* Top-Right Action Controls */
+/* Industry & Niche Badge (Last Item) */
+.business-info > div:first-child > p:last-child,
+.creator-info > div:first-child > p:last-child {
+  grid-column: span 2;
+  background-color: rgba(25, 216, 149, 0.08);
+  border-color: rgba(25, 216, 149, 0.25);
+  color: #065f46;
+  font-weight: 600;
+}
+
+.business-info > div:first-child > p:last-child svg,
+.creator-info > div:first-child > p:last-child svg {
+  color: #059669;
+}
+
+/* ==========================================================================
+   3. Profile Actions (Edit & Delete Pill Buttons)
+   ========================================================================== */
 .profile-actions {
-  position: absolute;
-  top: 36px;
-  right: 36px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
 }
 
-/* Orange Edit Button */
+/* Edit Button (Primary Mint Pill - #19d895) */
 .profile-actions a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 18px;
-  border-radius: 9px;
+  gap: 8px;
+  padding: 9px 24px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  background-color: #f97316;
-  color: #ffffff;
-  border: 1px solid #ea580c;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: all 0.15s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(25, 216, 149, 0.28);
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.profile-actions a svg {
+  font-size: 1rem;
+  color: #042f2e;
 }
 
 .profile-actions a:hover {
-  background-color: #ea580c;
-  border-color: #c2410c;
+  background-color: #15c586;
+  border-color: #15c586;
+  box-shadow: 0 4px 14px rgba(25, 216, 149, 0.38);
   transform: translateY(-1px);
 }
 
-/* Modern Soft Danger Delete Action */
+/* Delete Button (Secondary Subtle Red Outline) */
 .profile-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 18px;
-  border-radius: 9px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  background-color: #fef2f2;
-  color: #dc2626;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background-color: #ffffff;
   border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.profile-actions button svg {
+  font-size: 1rem;
+  color: #dc2626;
+  transition: color 0.15s ease;
 }
 
 .profile-actions button:hover {
-  background-color: #fee2e2;
+  background-color: #fef2f2;
   border-color: #f87171;
   color: #b91c1c;
-  transform: translateY(-1px);
 }
 
-/* Responsive Layout */
+.profile-actions button:hover svg {
+  color: #b91c1c;
+}
+
+/* ==========================================================================
+   4. Mobile Responsive
+   ========================================================================== */
 @media (max-width: 768px) {
-  .business-profile,
-  .creator-profile {
+  .profile-header {
+    padding: 28px 24px;
     border-radius: 16px;
   }
 
-  .profile-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 20px;
-    gap: 16px;
-  }
-
-  .profile-header a {
-    width: 100%;
-    text-align: center;
+  .profile-header h1 {
+    font-size: 1.6rem;
   }
 
   .business-info,
   .creator-info {
     padding: 24px 20px;
+    border-radius: 16px;
   }
 
   .business-info > div:first-child,
@@ -853,23 +623,134 @@ body {
     gap: 12px;
   }
 
-  .business-info p:nth-of-type(2),
-  .creator-info p:first-of-type {
-    grid-column: 1;
+  .business-info h2,
+  .creator-info h2,
+  .business-info > div:first-child > p,
+  .creator-info > div:first-child > p {
+    grid-column: span 1 !important;
   }
 
   .profile-actions {
-    position: static;
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
+    flex-direction: column-reverse;
     gap: 10px;
   }
 
   .profile-actions a,
   .profile-actions button {
-    flex: 1;
-    padding: 10px 16px;
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Hero ProfileHeader (Shared Emerald Gradient Banner with Action Link)
+   ========================================================================== */
+
+.profile-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #042f2e 100%);
+  border-radius: 20px;
+  padding: 36px 36px;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(6, 78, 59, 0.15);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Subtle decorative glowing mesh ring */
+.profile-header::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25, 216, 149, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Left side details (Name + Email) */
+.profile-header > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1;
+}
+
+.profile-header h1 {
+  font-size: 1.95rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profile-header p {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.885rem;
+  color: #d1fae5;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: fit-content;
+}
+
+/* Right side action link ("Find Campaigns" / "My Campaigns") */
+.profile-header > a {
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
+  font-size: 0.885rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(25, 216, 149, 0.35);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.profile-header > a:hover {
+  background-color: #16c688;
+  border-color: #16c688;
+  box-shadow: 0 4px 16px rgba(25, 216, 149, 0.5);
+  transform: translateY(-1px);
+}
+
+.profile-header > a:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .profile-header {
+    padding: 26px 20px;
+    border-radius: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .profile-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .profile-header > a {
+    width: 100%;
   }
 }
 
@@ -1996,7 +1877,7 @@ body {
 }
 
 /* ==========================================================================
-   Business Applications (Upwork-Inspired Feed & SaaS Card Layout)
+   Business Applications (Upwork-Inspired Feed & Modern SaaS Card Layout)
    ========================================================================== */
 
 /* Main Container */
@@ -2041,23 +1922,24 @@ body {
 
 /* Application Card (Row separated by subtle bottom divider) */
 .application-card {
-  padding: 24px 0 26px 0;
+  padding: 26px 0 28px 0;
   border-bottom: 1px solid #e4ebe4;
   background: transparent;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
   position: relative;
   transition: background-color 0.15s ease;
 }
 
 /* 1. Creator Name Heading */
 .application-card h2 {
+  width: 100%;
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.015em;
   color: #001e00;
-  margin: 0;
+  margin: 0 0 10px 0;
   line-height: 1.35;
   cursor: pointer;
   transition: color 0.15s ease;
@@ -2067,7 +1949,59 @@ body {
   color: #108a00;
 }
 
-/* 2. Campaign Secondary Tag */
+/* 2. Social Handles Badges (Instagram & TikTok) */
+.application-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.815rem;
+  font-weight: 500;
+  color: #4b5563;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin: 0 8px 10px 0;
+  white-space: nowrap;
+}
+
+.application-social svg {
+  font-size: 0.875rem;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+/* Instagram specific icon accent */
+.application-social:has(svg:first-child) svg {
+  color: #e1306c;
+}
+
+/* 3. Profile Details Link */
+.profile-details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.815rem;
+  font-weight: 600;
+  color: #059669;
+  background-color: rgba(25, 216, 149, 0.12);
+  border: 1px solid rgba(25, 216, 149, 0.28);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin: 0 8px 10px 0;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.profile-details-link:hover {
+  background-color: #19d895;
+  color: #042f2e;
+  border-color: #19d895;
+  transform: translateY(-1px);
+}
+
+/* 4. Campaign Tag */
 .application-campaign {
   display: inline-flex;
   align-items: center;
@@ -2078,8 +2012,7 @@ body {
   background-color: #f2f7f2;
   border-radius: 999px;
   padding: 4px 12px;
-  width: fit-content;
-  margin: 0;
+  margin: 0 8px 10px 0;
   white-space: nowrap;
 }
 
@@ -2087,11 +2020,11 @@ body {
   font-weight: 600;
   color: #001e00;
   text-transform: uppercase;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.04em;
 }
 
-/* 3. Status Badges */
+/* 5. Status Badges */
 .application-status {
   display: inline-flex;
   align-items: center;
@@ -2100,8 +2033,7 @@ body {
   border-radius: 999px;
   font-size: 0.775rem;
   font-weight: 600;
-  width: fit-content;
-  margin: 0;
+  margin: 0 8px 10px 0;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
@@ -2155,18 +2087,19 @@ body {
   color: #991b1b !important;
 }
 
-/* 4. Message Box (Readable and Secondary) */
+/* 6. Message Box (Full Width, Callout Style) */
 .application-message {
+  width: 100%;
   font-size: 0.9rem;
   color: #2b332b;
   line-height: 1.6;
   background-color: #f9fbf9;
   border: 1px solid #e4ebe4;
-  border-left: 3px solid #19d895;
+  border-left: 3.5px solid #19d895;
   border-radius: 4px 10px 10px 4px;
   padding: 12px 16px;
-  margin: 2px 0 4px 0;
-  max-width: 92ch;
+  margin: 4px 0 14px 0;
+  box-sizing: border-box;
 }
 
 .application-message strong {
@@ -2179,13 +2112,13 @@ body {
   margin-bottom: 4px;
 }
 
-/* 5. Action Buttons Container */
+/* 7. Action Buttons Container */
 .application-actions {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 10px;
-  margin-top: 4px;
-  align-self: flex-start;
 }
 
 /* Accept Button (Primary Positive Action - #19d895) */
@@ -2193,7 +2126,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 20px;
+  padding: 7px 22px;
   border-radius: 999px;
   background-color: #19d895;
   border: 1px solid #19d895;
@@ -2223,7 +2156,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 16px;
+  padding: 6px 18px;
   border-radius: 999px;
   background-color: transparent;
   color: #dc2626;
@@ -2246,7 +2179,7 @@ body {
   transform: translateY(0);
 }
 
-/* 6. Polished Empty State */
+/* 8. Empty State */
 .applications-empty {
   padding: 56px 24px;
   border-bottom: 1px solid #e4ebe4;
@@ -2258,21 +2191,23 @@ body {
   background-color: transparent;
 }
 
-/* 7. Responsive Adjustments */
+/* 9. Mobile Responsive */
 @media (max-width: 768px) {
   .application-card {
     padding: 20px 0;
   }
 
+  .application-social,
+  .profile-details-link,
   .application-campaign,
   .application-status {
-    width: 100%;
+    margin-right: 6px;
+    margin-bottom: 8px;
   }
 
   .application-actions {
     width: 100%;
     gap: 8px;
-    margin-top: 6px;
   }
 
   .accept-button,
@@ -2858,5 +2793,220 @@ body {
 
   .edit-campaign > form > div:last-child button {
     width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Creator Profile View (Modern Influencer Media-Kit / Portfolio Design)
+   ========================================================================== */
+
+.creator-profile-view {
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto 56px auto;
+  font-family: inherit;
+  color: #0f172a;
+}
+
+/* 1. Hero Showcase Header */
+.creator-view-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #042f2e 100%);
+  border-radius: 20px;
+  padding: 40px 36px 36px 36px;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(6, 78, 59, 0.15);
+  margin-bottom: 24px;
+}
+
+/* Subtle decorative glowing mesh ring */
+.creator-view-header::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25, 216, 149, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.creator-view-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.creator-view-header p {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.885rem;
+  color: #d1fae5;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: fit-content;
+}
+
+/* 2. Main Information Section */
+.creator-view-info {
+  width: 100%;
+}
+
+.creator-view-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Section Title */
+.creator-view-section h2 {
+  grid-column: span 2;
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* 3. Bio Callout Box (Full Width) */
+.creator-view-section > p:nth-of-type(1) {
+  grid-column: span 2;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+  background-color: #f8fafc;
+  border: 1px solid #edf0f4;
+  border-left: 4px solid #19d895;
+  border-radius: 6px 14px 14px 6px;
+  padding: 16px 20px;
+  margin: 4px 0 12px 0;
+}
+
+.creator-view-section > p:nth-of-type(1) strong {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+/* 4. Individual Attribute & Channel Metric Cards */
+.creator-view-section > p:not(:nth-of-type(1)) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.creator-view-section > p:not(:nth-of-type(1)):hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Icons styling inside attribute cards */
+.creator-view-section > p:not(:nth-of-type(1)) svg {
+  font-size: 1.2rem;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+/* Location Card Accent */
+.creator-view-section > p:nth-of-type(2) svg {
+  color: #059669;
+}
+
+/* Instagram Channel Card */
+.creator-view-section > p:nth-of-type(3) {
+  background: linear-gradient(135deg, #fff5f7 0%, #ffffff 100%);
+  border-color: #fce7f3;
+}
+
+.creator-view-section > p:nth-of-type(3) svg {
+  color: #e1306c;
+}
+
+/* Instagram Followers Card */
+.creator-view-section > p:nth-of-type(4) svg {
+  color: #e1306c;
+}
+
+/* TikTok Channel Card */
+.creator-view-section > p:nth-of-type(5) {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+  border-color: #ccfbf1;
+}
+
+.creator-view-section > p:nth-of-type(5) svg {
+  color: #0f172a;
+}
+
+/* TikTok Followers Card */
+.creator-view-section > p:nth-of-type(6) svg {
+  color: #0f172a;
+}
+
+/* Niche / Category Pill Card */
+.creator-view-section > p:nth-of-type(7) {
+  grid-column: span 2;
+  background-color: rgba(25, 216, 149, 0.08);
+  border-color: rgba(25, 216, 149, 0.25);
+  color: #065f46;
+  font-weight: 600;
+}
+
+.creator-view-section > p:nth-of-type(7) svg {
+  color: #059669;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .creator-view-header {
+    padding: 28px 24px;
+    border-radius: 16px;
+  }
+
+  .creator-view-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .creator-view-section {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+    border-radius: 16px;
+    gap: 12px;
+  }
+
+  .creator-view-section h2,
+  .creator-view-section > p:nth-of-type(1),
+  .creator-view-section > p:nth-of-type(7) {
+    grid-column: span 1;
   }
 }

@@ -17,6 +17,7 @@ import BusinessApplications from './pages/business/BusinessApplications'
 import EditCreatorProfile from './pages/creator/EditCreatorProfile'
 import EditBusinessProfile from './pages/business/EditBusinessProfile'
 import EditCampaign from './pages/business/EditCampaign'
+import CreatorProfileView from './pages/business/CreatorProfileView'
 
 function App() {
   return (
@@ -163,6 +164,17 @@ function App() {
               <ProtectedRoute role="business">
                   <DashboardLayout>
                       <EditCampaign />
+                  </DashboardLayout>
+              </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/business/creators/:id"
+          element={
+              <ProtectedRoute role="business">
+                  <DashboardLayout>
+                      <CreatorProfileView />
                   </DashboardLayout>
               </ProtectedRoute>
           }

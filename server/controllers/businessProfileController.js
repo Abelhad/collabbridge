@@ -145,6 +145,48 @@ const updateMyBusinessProfile = async (req, res) =>{
     }
 }
 
+const getCreatorProfile = async (req, res) => {
+    try {
+        const creatorId = req.params.id
+
+        const result = await pool.query(
+            `SELECT
+                users.id,
+                users.name,
+                users.email,
+                profiles.bio,
+                profiles.location,
+                profiles.instagram,
+                profiles.instagram_followers,
+                profiles.tiktok,
+                profiles.tiktok_followers,
+                profiles.niche
+            FROM users
+            JOIN profiles
+                ON profiles.user_id = users.id
+            WHERE users.id = $1
+            AND users.role = 'creator'`,
+            [creatorId]
+        )
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                message: 'Creator profile not found'
+            })
+        }
+
+        res.json({
+            profile: result.rows[0]
+        })
+    } catch (error) {
+        console.error(error)
+
+        res.status(500).json({
+            message: 'Server error'
+        })
+    }
+}
+
 const deleteMyBusinessProfile = async (req, res) => {
     try{
         const userId = req.user.id;
@@ -173,4 +215,4 @@ const deleteMyBusinessProfile = async (req, res) => {
     }
 }
 
-module.exports = { createBusinessProfile, getMyBusinessProfile, updateMyBusinessProfile, deleteMyBusinessProfile };
+module.exports = { createBusinessProfile, getMyBusinessProfile, updateMyBusinessProfile, deleteMyBusinessProfile, getCreatorProfile };
