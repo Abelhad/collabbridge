@@ -22,7 +22,13 @@ const Register = () => {
                 password,
                 role
             })
-            navigate('/login')
+            navigate('/login', {
+                state: {
+                    redirectTo: role === 'creator'
+                        ? '/creator/profile/setup'
+                        : '/business/profile/setup'
+                }
+            })
         }catch(error){
             setError(error.response?.data?.message || 'Registration failed')
         }

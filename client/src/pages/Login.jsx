@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from '../services/api'
 import { useAuth } from '../context/AuthContext'
-
+import { useLocation } from 'react-router-dom'
 
 
 const Login = () => {
@@ -12,26 +12,40 @@ const Login = () => {
 
   const { setUser } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const handleLogin = async (e) => {
     e.preventDefault()
     setError('')
 
-    try{
+    try {
       const response = await api.post('/auth/login', {
-        email,
-        password
+      email,
+      password
       })
+
       setUser(response.data.user)
-      if(response.data.user.role === 'creator'){
+
+      const redirectTo = location.state?.redirectTo
+
+      if (redirectTo) {
+        navigate(redirectTo)
+        return
+        }
+
+      if (response.data.user.role === 'creator') {
         navigate('/creator/dashboard')
-      }else{
+        } else {
         navigate('/business/dashboard')
+        }
+
+    } catch (error) {
+        setError(
+          error.response?.data?.message ||
+          'Login failed'
+        )
       }
-    }catch(error){
-      setError(error.response?.data?.message || 'Login failed')
     }
-  }
   return (
     <form onSubmit={handleLogin}>
       <input type="email" 
