@@ -10,9 +10,12 @@ const applicationRoutes = require('./routes/applicationRoutes');
 const cors = require('cors')
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: [
+        'http://localhost:5173',
+        'https://collabbridge-chi.vercel.app'
+    ],
     credentials: true
-}))
+}));
 
 app.use(express.json());
 app.use(cookieParser());
