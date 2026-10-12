@@ -1660,12 +1660,11 @@ body {
 }
 
 /* ==========================================================================
-   Business Campaigns - Modern SaaS Management Cards
-   Latest UX: Grouped metric chips, distinct visual hierarchy, clean card separation
+   Business Campaigns - Modern 2-Column Responsive SaaS Grid
    ========================================================================== */
 
 .business-campaigns {
-  max-width: 960px;
+  max-width: 1040px;
   width: 100%;
   margin: 0 auto 56px auto;
   font-family: inherit;
@@ -1733,19 +1732,20 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-/* Campaigns Stack */
+/* Responsive 2-Column Grid (2 per line when space allows, 1 when narrow) */
 .business-campaigns > div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 22px;
+  align-items: stretch;
 }
 
-/* Individual Campaign Card: Modern Elevating SaaS Card */
+/* Individual Campaign Card: Structured Flex Card */
 .business-campaigns > div:last-child > div {
   background-color: #ffffff;
   border: 1px solid #edf0f4;
   border-radius: 20px;
-  padding: 26px 30px;
+  padding: 24px 26px;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
@@ -1754,37 +1754,41 @@ body {
   overflow: hidden;
 }
 
-/* Subtle left mint accent strip on hover */
+/* Subtle top mint accent line on hover */
 .business-campaigns > div:last-child > div::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: #19d895;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #022c22 0%, #19d895 100%);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
 .business-campaigns > div:last-child > div:hover {
   border-color: #cbd5e1;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+  transform: translateY(-3px);
 }
 
 .business-campaigns > div:last-child > div:hover::before {
   opacity: 1;
 }
 
-/* Title */
+/* Title (2-line clamp for clean uniform cards) */
 .business-campaigns > div:last-child > div > h2 {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   color: #0f172a;
   margin: 0 0 10px 0;
   line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   transition: color 0.15s ease;
 }
 
@@ -1792,41 +1796,45 @@ body {
   color: #059669;
 }
 
-/* Description */
+/* Description (Takes available space, clean 3-line clamp) */
 .business-campaigns > div:last-child > div > p:nth-of-type(1) {
-  font-size: 0.915rem;
+  font-size: 0.9rem;
   color: #475569;
-  line-height: 1.65;
+  line-height: 1.6;
   margin: 0 0 18px 0;
-  max-width: 88ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
 }
 
-/* Metadata Chips Row: Clean SaaS Feature Badges */
+/* Metadata Chips: Auto-wrapping feature pills */
 .business-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  margin: 0 8px 12px 0;
-  padding: 6px 14px;
-  border-radius: 10px;
+  gap: 6px;
+  margin: 0 6px 8px 0;
+  padding: 5px 12px;
+  border-radius: 8px;
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #334155;
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
 .business-campaigns > div:last-child > div > p:not(:nth-of-type(1)) strong {
-  font-size: 0.725rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: #64748b;
 }
 
-/* Budget Chip Highlight (Modern Green Pill / Finance accent) */
+/* Budget Chip Highlight (#19d895 Mint Finance Accent) */
 .business-campaigns > div:last-child > div > p:nth-of-type(3) {
   background: linear-gradient(135deg, rgba(25, 216, 149, 0.15) 0%, rgba(25, 216, 149, 0.05) 100%);
   border-color: rgba(25, 216, 149, 0.35);
@@ -1838,7 +1846,7 @@ body {
   color: #047857;
 }
 
-/* Deadline Chip (Subtle Calendar Accent) */
+/* Deadline Chip (Warm Neutral Calendar Accent) */
 .business-campaigns > div:last-child > div > p:nth-of-type(4) {
   background-color: #fefce8;
   border-color: #fef08a;
@@ -1849,11 +1857,10 @@ body {
   color: #a16207;
 }
 
-/* Actions Section */
+/* Actions Row at bottom of card */
 .business-campaigns > div:last-child > div > a,
 .business-campaigns > div:last-child > div > button {
-  align-self: flex-start;
-  margin-top: 6px;
+  margin-top: 14px;
 }
 
 /* Edit Action Pill */
@@ -1861,9 +1868,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 22px;
+  padding: 8px 20px;
   border-radius: 999px;
-  font-size: 0.835rem;
+  font-size: 0.825rem;
   font-weight: 600;
   text-decoration: none;
   background-color: #19d895;
@@ -1872,7 +1879,8 @@ body {
   box-shadow: 0 1px 4px rgba(25, 216, 149, 0.25);
   transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
-  margin-right: 10px;
+  margin-right: 8px;
+  width: fit-content;
 }
 
 .business-campaigns > div:last-child > div > a:hover {
@@ -1887,9 +1895,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 18px;
+  padding: 7px 16px;
   border-radius: 999px;
-  font-size: 0.835rem;
+  font-size: 0.825rem;
   font-weight: 500;
   background-color: #ffffff;
   color: #dc2626;
@@ -1898,6 +1906,7 @@ body {
   transition: all 0.18s ease;
   white-space: nowrap;
   outline: none;
+  width: fit-content;
 }
 
 .business-campaigns > div:last-child > div > button:hover {
@@ -1907,9 +1916,14 @@ body {
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .business-campaigns > div:last-child {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .business-campaigns > div:last-child > div {
-    padding: 22px 20px;
+    padding: 20px 18px;
   }
 
   .business-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
