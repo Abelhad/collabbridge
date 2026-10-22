@@ -90,6 +90,32 @@ const getCampaigns = async (req, res) => {
     }
 }
 
+
+const getMyCampaigns = async (req, res) => {
+    try {
+        const businessId = req.user.id;
+
+        const result = await pool.query(
+            `SELECT * FROM campaigns
+             WHERE business_id = $1
+             ORDER BY created_at DESC`,
+            [businessId]
+        );
+
+        res.json({
+            campaigns: result.rows
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+};
+
+
 const getCampaignById = async (req, res) => {
     try{
         const campaignId = req.params.id;
@@ -215,4 +241,4 @@ const deleteCampaign = async (req, res) => {
     }
 }
 
-module.exports = { createCampaign, getCampaigns, getCampaignById, updateCampaign, deleteCampaign };
+module.exports = { createCampaign, getCampaigns, getMyCampaigns, getCampaignById, updateCampaign, deleteCampaign };

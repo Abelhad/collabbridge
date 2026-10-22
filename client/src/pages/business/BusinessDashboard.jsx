@@ -17,7 +17,7 @@ const BusinessDashboard = () => {
             try {
                 const [campaignsResponse, applicationsResponse] =
                     await Promise.all([
-                        api.get('/campaigns'),
+                        api.get('/campaigns/my-campaigns'),
                         api.get('/applications/business')
                     ])
 

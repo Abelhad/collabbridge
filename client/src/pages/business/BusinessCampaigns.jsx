@@ -10,7 +10,7 @@ const BusinessCampaigns = () => {
     useEffect(() => {
         const getCampaigns = async () => {
             try {
-                const response = await api.get('/campaigns')
+                const response = await api.get('/campaigns/my-campaigns')
                 setCampaigns(response.data.campaigns)
             } catch (error) {
                 setError(
