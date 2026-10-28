@@ -3576,3 +3576,655 @@ form:has(button[type="submit"]:only-of-type) p {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   CollabBridge - Modern SaaS Homepage (Home.css)
+   Colors: Deep Navy (#0f172a / #111827), Mint Accent (#19d895 / #16c688),
+           Emerald Gradients (#022c22 -> #064e3b), Clean Slate (#475569)
+   ========================================================================== */
+
+.home-page {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px 80px 24px;
+  font-family: inherit;
+  color: #0f172a;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. Hero Section
+   ========================================================================== */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+  padding: 56px 0 88px 0;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+/* Hero Pill Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background-color: rgba(25, 216, 149, 0.12);
+  border: 1px solid rgba(25, 216, 149, 0.32);
+  color: #065f46;
+  font-size: 0.825rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(25, 216, 149, 0.08);
+}
+
+.hero-badge svg {
+  color: #059669;
+  font-size: 0.95rem;
+}
+
+/* Main Hero Heading */
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #0f172a;
+  margin: 0 0 20px 0;
+}
+
+.hero-section h1 span {
+  background: linear-gradient(135deg, #059669 0%, #19d895 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0 0 32px 0;
+  max-width: 54ch;
+}
+
+/* Buttons / Actions Row */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+/* Primary Mint Pill CTA Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(25, 216, 149, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.btn-primary svg {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #16c688;
+  border-color: #16c688;
+  box-shadow: 0 6px 20px rgba(25, 216, 149, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Ghost Outline Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #1e293b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Under-CTA Trust Note */
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.865rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.hero-note svg {
+  color: #10b981;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Hero Screenshot Visual */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Subtle glowing aura behind dashboard mock */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(25, 216, 149, 0.18) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dashboard-preview {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 20px;
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.6) 100%);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.dashboard-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px -15px rgba(15, 23, 42, 0.16);
+}
+
+.dashboard-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid #edf0f4;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Shared Section Heading
+   ========================================================================== */
+.section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px auto;
+}
+
+.section-heading > span {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #059669;
+  background-color: rgba(25, 216, 149, 0.12);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.section-heading h2 {
+  font-size: 2.25rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+}
+
+.section-heading p {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. Audience Section (For Businesses / For Creators)
+   ========================================================================== */
+.audience-section {
+  padding: 64px 0 80px 0;
+  border-top: 1px solid #edf0f4;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.audience-card {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 22px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.audience-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #022c22 0%, #19d895 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.audience-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  transform: translateY(-4px);
+}
+
+.audience-card:hover::before {
+  opacity: 1;
+}
+
+.audience-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(25, 216, 149, 0.16) 0%, rgba(25, 216, 149, 0.05) 100%);
+  border: 1px solid rgba(25, 216, 149, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #065f46;
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+}
+
+.audience-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+}
+
+.audience-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+  flex-grow: 1;
+}
+
+.audience-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.925rem;
+  font-weight: 650;
+  color: #059669;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.audience-card a svg {
+  transition: transform 0.2s ease;
+}
+
+.audience-card a:hover {
+  color: #047857;
+}
+
+.audience-card a:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   3. Steps Section (How It Works - 3 Step Process)
+   ========================================================================== */
+.steps-section {
+  padding: 64px 0 80px 0;
+  border-top: 1px solid #edf0f4;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 20px;
+  padding: 34px 30px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  transform: translateY(-3px);
+}
+
+.step-number {
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #059669;
+  background-color: rgba(25, 216, 149, 0.12);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(25, 216, 149, 0.28);
+}
+
+.step-card h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. Benefits Section (Why CollabBridge?)
+   ========================================================================== */
+.benefits-section {
+  padding: 64px 44px;
+  margin-top: 24px;
+  background-color: #f8fafc;
+  border: 1px solid #edf0f4;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  align-items: center;
+  gap: 36px;
+}
+
+.benefits-section > div:first-child span {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 10px;
+}
+
+.benefits-section > div:first-child h2 {
+  font-size: 1.65rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px 22px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.02);
+  transition: all 0.2s ease;
+}
+
+.benefit-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  transform: translateY(-2px);
+}
+
+.benefit-item > svg {
+  font-size: 1.35rem;
+  color: #059669;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: rgba(25, 216, 149, 0.12);
+  flex-shrink: 0;
+}
+
+.benefit-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.benefit-item p {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   5. Final CTA Banner
+   ========================================================================== */
+.cta-section {
+  margin-top: 80px;
+  padding: 68px 36px;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 65%, #042f2e 100%);
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(6, 78, 59, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Glowing background mesh ring */
+.cta-section::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25, 216, 149, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-section h2 {
+  font-size: 2.35rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+  max-width: 24ch;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section p {
+  font-size: 1.05rem;
+  color: #d1fae5;
+  margin: 0 0 32px 0;
+  max-width: 44ch;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section .btn-primary {
+  position: relative;
+  z-index: 1;
+  padding: 13px 32px;
+  font-size: 0.975rem;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 36px 0 60px 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-section h1 {
+    font-size: 2.75rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .benefits-section {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page {
+    padding: 0 16px 60px 16px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+  }
+
+  .audience-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .audience-card {
+    padding: 28px 24px;
+  }
+
+  .section-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-section {
+    padding: 48px 20px;
+    margin-top: 56px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.75rem;
+  }
+}
+body:has(.home-page) {
+  overflow-y: auto;
+}
