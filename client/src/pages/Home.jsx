@@ -35,7 +35,7 @@ export default function Home() {
               Get started <FiArrowRight />
             </Link>
 
-            <Link to="/campaigns" className="btn-secondary">
+            <Link to="/register" className="btn-secondary">
               Explore campaigns
             </Link>
           </div>
