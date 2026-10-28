@@ -1320,151 +1320,206 @@ body {
 }
 
 /* ==========================================================================
-   Creator Campaigns - "Find Campaigns" (Upwork Job Feed Style)
+   Creator Campaigns - Modern Responsive SaaS Discovery Grid
+   2 cards per row on larger screens to utilize space effectively, 1 on mobile
    ========================================================================== */
 
 .creator-campaigns {
-  max-width: 920px;
+  max-width: 1040px;
   width: 100%;
-  margin: 0 auto 48px auto;
+  margin: 0 auto 56px auto;
   font-family: inherit;
-  color: #001e00;
+  color: #0f172a;
 }
 
 /* Page Header */
 .creator-campaigns > h1 {
-  font-size: 1.65rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #001e00;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0f172a;
   margin: 0 0 24px 0;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e4ebe4;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #edf0f4;
+  line-height: 1.25;
 }
 
-/* Campaign List Feed (Flat Feed - No Outer Border) */
+/* Empty State Card */
+.creator-campaigns > p {
+  padding: 64px 24px;
+  background-color: #ffffff;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+  margin: 24px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Responsive 2-Column Grid (fills space dynamically on large screens) */
 .creator-campaigns > div:last-child {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Individual Opportunity Card */
+.creator-campaigns > div:last-child > div {
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-}
-
-/* Individual Campaign Row (Separated strictly by a clean bottom line) */
-.creator-campaigns > div:last-child > div {
-  padding: 24px 0 26px 0;
-  border: none;
-  border-bottom: 1px solid #e4ebe4;
-  background: transparent;
-  transition: background-color 0.15s ease;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
-/* 1. Campaign Title (Upwork Job Offer Heading - Turns Green on Hover) */
+/* Subtle top gradient accent on hover */
+.creator-campaigns > div:last-child > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #022c22 0%, #19d895 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.creator-campaigns > div:last-child > div:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+  transform: translateY(-3px);
+}
+
+.creator-campaigns > div:last-child > div:hover::before {
+  opacity: 1;
+}
+
+/* Title (2-line clamp for clean uniform cards) */
 .creator-campaigns > div:last-child > div > h2 {
-  width: 100%;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.18rem;
+  font-weight: 700;
   letter-spacing: -0.015em;
-  color: #001e00;
+  color: #0f172a;
   margin: 0 0 10px 0;
-  line-height: 1.4;
-  cursor: pointer;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   transition: color 0.15s ease;
 }
 
 .creator-campaigns > div:last-child > div:hover > h2 {
-  color: #108a00;
-  text-decoration: underline;
+  color: #059669;
 }
 
-/* 2. Description (Clean Body Paragraph) */
+/* Description (clean 3-line clamp, fills card space) */
 .creator-campaigns > div:last-child > div > p:nth-of-type(1) {
-  width: 100%;
   font-size: 0.9rem;
-  color: #2b332b;
+  color: #475569;
   line-height: 1.6;
-  margin: 0 0 14px 0;
-  max-width: 92ch;
+  margin: 0 0 18px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
 }
 
-/* 3. Metadata Tags (Location, Budget, Deadline - Upwork Style Pill Badges) */
+/* Metadata Chips Row: Clean Feature Badges */
 .creator-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin: 0 8px 10px 0;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background-color: #f2f7f2;
-  color: #5e6d55;
-  font-size: 0.815rem;
+  gap: 6px;
+  margin: 0 6px 8px 0;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.8rem;
   font-weight: 500;
-  border: none;
+  letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
 .creator-campaigns > div:last-child > div > p:not(:nth-of-type(1)) strong {
-  font-weight: 600;
-  color: #001e00;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
 }
 
-/* Budget Tag Highlight (#19d895 Soft Mint Accent) */
+/* Budget Chip Highlight (#19d895 Mint Accent) */
 .creator-campaigns > div:last-child > div > p:nth-of-type(3) {
-  background-color: rgba(25, 216, 149, 0.14);
+  background: linear-gradient(135deg, rgba(25, 216, 149, 0.15) 0%, rgba(25, 216, 149, 0.05) 100%);
+  border-color: rgba(25, 216, 149, 0.35);
   color: #065f46;
+  font-weight: 650;
 }
 
 .creator-campaigns > div:last-child > div > p:nth-of-type(3) strong {
-  color: #064e3b;
+  color: #047857;
 }
 
-/* 4. Primary Action: "View Campaign" Button */
+/* Deadline Chip (Warm Neutral Calendar Accent) */
+.creator-campaigns > div:last-child > div > p:nth-of-type(4) {
+  background-color: #fefce8;
+  border-color: #fef08a;
+  color: #854d0e;
+}
+
+.creator-campaigns > div:last-child > div > p:nth-of-type(4) strong {
+  color: #a16207;
+}
+
+/* Primary "View Campaign" Action Pill Button */
 .creator-campaigns > div:last-child > div > a {
-  margin-left: auto;
-  margin-bottom: 10px;
+  margin-top: 14px;
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  padding: 7px 20px;
+  justify-content: center;
+  padding: 8px 22px;
   border-radius: 999px;
-  font-size: 0.825rem;
+  font-size: 0.835rem;
   font-weight: 600;
   text-decoration: none;
   background-color: #19d895;
   color: #042f2e;
   border: 1px solid #19d895;
-  box-shadow: 0 1px 3px rgba(25, 216, 149, 0.2);
-  transition: all 0.15s ease;
+  box-shadow: 0 1px 4px rgba(25, 216, 149, 0.25);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  width: fit-content;
 }
 
 .creator-campaigns > div:last-child > div > a:hover {
-  background-color: #15c586;
-  border-color: #15c586;
-  box-shadow: 0 3px 10px rgba(25, 216, 149, 0.35);
+  background-color: #16c688;
+  border-color: #16c688;
+  box-shadow: 0 4px 12px rgba(25, 216, 149, 0.38);
   transform: translateY(-1px);
 }
 
-/* Empty State */
-.creator-campaigns > p {
-  padding: 48px 0;
-  border-bottom: 1px solid #e4ebe4;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #5e6d55;
-  font-weight: 500;
-  margin: 0;
-}
-
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .creator-campaigns > div:last-child {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .creator-campaigns > div:last-child > div {
-    padding: 20px 0;
+    padding: 20px 18px;
   }
 
   .creator-campaigns > div:last-child > div > p:not(:nth-of-type(1)) {
@@ -1474,8 +1529,7 @@ body {
 
   .creator-campaigns > div:last-child > div > a {
     width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    margin-top: 8px;
     justify-content: center;
   }
 }
@@ -3405,5 +3459,120 @@ form:has(button[type="submit"]:only-of-type) p {
     grid-column: span 1;
     width: 100%;
     justify-self: stretch;
+  }
+}
+/* ==========================================================================
+   Profile Not Found / Setup Empty State (.PorfileNotFound / .ProfileNotFound)
+   Modern onboarding empty-state card with mint accent CTA
+   ========================================================================== */
+
+.PorfileNotFound,
+.ProfileNotFound {
+  max-width: 580px;
+  width: 100%;
+  margin: 64px auto;
+  padding: 48px 36px 44px 36px;
+  background-color: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top accent line in theme gradient (Dark Emerald to #19d895 Mint) */
+.PorfileNotFound::before,
+.ProfileNotFound::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #022c22 0%, #19d895 100%);
+}
+
+/* Error / Notice Text */
+.PorfileNotFound > p,
+.ProfileNotFound > p {
+  font-size: 1.05rem;
+  font-weight: 550;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+  max-width: 44ch;
+}
+
+/* CTA Container */
+.PorfileNotFound > div,
+.ProfileNotFound > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Primary "Create Profile" Pill Button (#19d895 Mint CTA) */
+.PorfileNotFound a,
+.ProfileNotFound a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 32px;
+  border-radius: 999px;
+  background-color: #19d895;
+  border: 1px solid #19d895;
+  color: #042f2e;
+  font-size: 0.925rem;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 3px 14px rgba(25, 216, 149, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.PorfileNotFound a .nav-icon,
+.ProfileNotFound a .nav-icon {
+  font-size: 1.15rem;
+  color: #042f2e;
+}
+
+.PorfileNotFound a:hover,
+.ProfileNotFound a:hover {
+  background-color: #16c688;
+  border-color: #16c688;
+  box-shadow: 0 6px 20px rgba(25, 216, 149, 0.48);
+  transform: translateY(-2px);
+}
+
+.PorfileNotFound a:active,
+.ProfileNotFound a:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .PorfileNotFound,
+  .ProfileNotFound {
+    margin: 32px 16px;
+    padding: 36px 22px 32px 22px;
+    border-radius: 18px;
+  }
+
+  .PorfileNotFound > p,
+  .ProfileNotFound > p {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  .PorfileNotFound a,
+  .ProfileNotFound a {
+    width: 100%;
   }
 }

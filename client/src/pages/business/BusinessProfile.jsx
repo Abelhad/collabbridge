@@ -11,7 +11,8 @@ import {
     FiGlobe,
     FiTag,
     FiEdit,
-    FiTrash2
+    FiTrash2,
+    FiPlusSquare
 } from 'react-icons/fi'
 
 const BusinessProfile = () => {
@@ -58,7 +59,18 @@ const BusinessProfile = () => {
     }
 
     if (error) {
-        return <p>{error}</p>
+        return (
+            <>
+                <div className='PorfileNotFound'>
+                    <p>{error}</p>
+                    <div>
+                        <Link to="/business/profile/setup">
+                            <FiPlusSquare className="nav-icon" /> Create Profile
+                        </Link>
+                    </div>
+                </div>
+            </>
+        )
     }
 
     return (

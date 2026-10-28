@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import api from '../../services/api'
 import ProfileHeader from '../../components/ProfileHeader'
 import { FaInstagram, FaTiktok } from 'react-icons/fa'
-import { FiMapPin, FiUsers, FiTag, FiEdit, FiTrash2 } from 'react-icons/fi'
+import { FiMapPin, FiUsers, FiTag, FiEdit, FiTrash2, FiPlusSquare } from 'react-icons/fi'
 
 const CreatorProfile = () => {
     const { user } = useAuth()
@@ -50,7 +50,19 @@ const CreatorProfile = () => {
     }
 
     if (error) {
-        return <p>{error}</p>
+        return (
+            <>
+                <div className='PorfileNotFound'>
+                    <p>{error}</p>
+                    <div>
+                        <Link to="/creator/profile/setup">
+                            <FiPlusSquare className="nav-icon" /> Create Profile
+                        </Link>
+                    </div>
+                </div>
+            </>
+
+        )
     }
 
     return (
